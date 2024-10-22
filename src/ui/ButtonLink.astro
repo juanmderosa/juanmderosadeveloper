@@ -1,0 +1,16 @@
+---
+interface Props {
+  text?: string;
+  href?: string;
+  isDownloadable?: boolean;
+}
+
+const { text, href, isDownloadable } = Astro.props;
+---
+
+<a
+  class="button"
+  {...isDownloadable ? { download: href } : {}}
+  href={href}
+  >{text}</a
+>

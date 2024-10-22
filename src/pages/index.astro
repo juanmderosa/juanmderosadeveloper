@@ -1,0 +1,26 @@
+---
+import Contacto from "../components/Contacto.astro";
+import Hero from "../components/Hero.astro";
+import Opiniones from "../components/Opiniones.astro";
+import Proyectos from "../components/Proyectos.astro";
+import SobreMi from "../components/SobreMi.astro";
+import Stack from "../components/Stack.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Juanmderosa Developer">
+  <main class="main-container">
+    <Hero />
+    <SobreMi />
+    <Stack />
+    <Proyectos />
+    <Opiniones />
+    <Contacto />
+  </main>
+</Layout>
+
+<style>
+  .main-container {
+    grid-row: 2/3;
+  }
+</style>

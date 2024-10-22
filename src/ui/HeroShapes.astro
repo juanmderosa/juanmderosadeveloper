@@ -1,0 +1,37 @@
+---
+import Circles from "./Circles.astro";
+import BigCircle from "./BigCircle.astro";
+---
+
+<aside class="heroshapes-container">
+  <BigCircle
+    width="250px"
+    top="15%"
+    left="20%"
+    background="repeating-linear-gradient(-45deg, var(--silver), var(--silver) 10px, transparent 10px, transparent 20px)"
+    zindex="0"
+  />
+  <BigCircle
+    width="250px"
+    top="25%"
+    left="30%"
+    background="var(--purple)"
+    zindex="-1"
+  />
+  <BigCircle
+    width="300px"
+    top="35%"
+    left="40%"
+    background="repeating-linear-gradient(45deg, var(--silver), var(--silver) 10px, transparent 10px, transparent 20px)"
+    zindex="-2"
+  />
+  <Circles />
+</aside>
+
+<style>
+  .heroshapes-container {
+    grid-column: 2/3;
+    grid-row: 1/3;
+    position: relative;
+  }
+</style>

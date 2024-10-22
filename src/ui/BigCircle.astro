@@ -1,0 +1,30 @@
+---
+interface Props {
+  width: string;
+  top: string;
+  left: string;
+  background: string;
+  zindex: string;
+}
+
+const { width, left, top, background, zindex } = Astro.props;
+---
+
+<div
+  class="circle-1"
+  style=`--background: 
+    ${background}; 
+    width: ${width}; 
+    top: ${top}; left: 
+    ${left}; 
+    z-index: ${zindex}`>
+</div>
+
+<style>
+  .circle-1 {
+    position: absolute;
+    border-radius: 100%;
+    aspect-ratio: 1/1;
+    background: var(--background);
+  }
+</style>

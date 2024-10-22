@@ -1,0 +1,77 @@
+---
+import { Image } from "astro:assets";
+import whatsapp from "../assets/logos/whatsapp.svg";
+---
+
+<button
+  class="wa-btn fixed md:bottom-5 bottom-3 md:right-5 right-3 z-50 rounded-full">
+  <Image
+    src={whatsapp}
+    alt="whatsapp icon"
+    width={56}
+    height={56}
+    class="svg"
+  />
+</button>
+
+<style>
+  .wa-btn {
+    cursor: pointer;
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    z-index: 9999;
+    border-radius: 50%;
+    background-color: #25d366;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.2rem;
+    &:hover {
+      -webkit-animation: pulsate-bck 0.5s ease-in-out 3 both;
+      animation: pulsate-bck 0.5s ease-in-out 3 both;
+    }
+  }
+
+  .svg {
+    border-radius: 100%;
+  }
+
+  @-webkit-keyframes pulsate-bck {
+    0% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+    50% {
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9);
+    }
+    100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+  @keyframes pulsate-bck {
+    0% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+    50% {
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9);
+    }
+    100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+</style>
+
+<script>
+  const btn = document.querySelector(".wa-btn") as HTMLButtonElement;
+
+  btn.addEventListener("click", () => {
+    window.open("https://wa.me/5491154632571", "_blank");
+  });
+</script>

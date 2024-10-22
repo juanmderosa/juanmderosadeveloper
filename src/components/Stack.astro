@@ -1,0 +1,114 @@
+---
+import { Image } from "astro:assets";
+import stackImage from "../assets/images/stackimage.jpg";
+import BigCircle from "../ui/BigCircle.astro";
+
+const technologies = [
+  "HTML",
+  "CSS",
+  "Javascript",
+  "Typescript",
+  "React",
+  "Astro Js",
+  "Next Js",
+  "Node JS",
+  "Git / Github",
+  "Bootstrap",
+  "Tailwind",
+  "SASS",
+  "Wordpress",
+  "Woocommerce",
+];
+
+const experiencias = [
+  "Desarrollo Web",
+  "Landing Pages",
+  "E-commerce",
+  "Diseño Responsive",
+  "Configuración de Hosting y Dominios",
+  "Mantenimiento de Sitios Web",
+];
+---
+
+<section class="container stack-main-container">
+  <article class="stack-container">
+    <h3>Stack</h3>
+    <ul>
+      {technologies.map((technology) => <li>{technology}</li>)}
+    </ul>
+  </article>
+  <article class="experience-container">
+    <h3>Experiencia</h3>
+    <ul>
+      {experiencias.map((experiencia) => <li>{experiencia}</li>)}
+    </ul>
+  </article>
+  <article class="stack-image-container">
+    <Image
+      src={stackImage}
+      alt="Stack Image"
+      width={324}
+      height={576}
+      class="stack-image"
+    />
+  </article>
+  <BigCircle
+    width="200px"
+    top="55%"
+    left="35%"
+    background="repeating-linear-gradient(-45deg, var(--silver), var(--silver) 10px, transparent 10px, transparent 20px)"
+    zindex="-1"
+  />
+  <BigCircle
+    width="200px"
+    top="60%"
+    left="40%"
+    background="var(--purple)"
+    zindex="-0"
+  />
+</section>
+
+<style>
+  .stack-main-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: start;
+    width: 100%;
+    position: relative;
+  }
+
+  h3 {
+    text-align: left;
+  }
+
+  ul {
+    margin-top: 2rem;
+  }
+
+  li {
+    list-style-position: inside;
+    margin-bottom: 0.5rem;
+  }
+
+  .stack-container {
+    grid-column: 1/2;
+  }
+  .experience-container {
+    grid-column: 2/3;
+  }
+
+  .stack-image-container {
+    grid-column: 3/4;
+    height: 100%;
+    width: 100%;
+    border-radius: 18px;
+  }
+
+  .stack-image {
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow:
+      1px 1px 5px var(--french-gray),
+      -1px -1px 5px var(--french-gray);
+  }
+</style>

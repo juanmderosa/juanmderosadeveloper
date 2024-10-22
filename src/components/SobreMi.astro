@@ -1,0 +1,87 @@
+---
+import { Image } from "astro:assets";
+import fotoperfil from "../assets/images/fotoperfil.png";
+import BigCircle from "../ui/BigCircle.astro";
+import ButtonLink from "../ui/ButtonLink.astro";
+---
+
+<section
+  class="container sobre-mi-container"
+  id="sobremi">
+  <article class="sobre-mi-title-image-container">
+    <h2>Sobre Mi</h2>
+    <Image
+      src={fotoperfil}
+      width={300}
+      height={400}
+      alt="Foto perfil de Juan Martín De Rosa"
+      class="sobre-mi-image"
+    />
+  </article>
+  <article class="sobre-mi-text-container">
+    <h3 class="sobre-mi-subtitle">Desarrollador Front End</h3>
+    <p>
+      Soy un desarrollador Web Front end comprometido a ofrecer soluciones
+      innovadoras y efectivas para los clientes, poniendo énfasis en la calidad.
+    </p>
+    <p>
+      Soy una persona creativa, curiosa y orientada a resultados. Me encanta
+      enfrentar nuevos desafíos y aprender de forma continua para mejorar mis
+      habilidades.
+    </p>
+    <p>
+      Además de mis habilidades como programador web cuento con experiencia de
+      10 años en E-Commerce y poseo habilidades en comunicación y marketing.
+    </p>
+    <ButtonLink
+      href="CV - Juan Martín De Rosa.pdf"
+      text="Descargar CV"
+      isDownloadable={true}
+    />
+  </article>
+  <BigCircle
+    width="400px"
+    top="75%"
+    left="85%"
+    background="repeating-linear-gradient(45deg, var(--silver), var(--silver) 10px, transparent 10px, transparent 20px)"
+    zindex="-1"
+  />
+</section>
+
+<style>
+  .sobre-mi-container {
+    display: flex;
+    width: 100%;
+    position: relative;
+  }
+
+  .sobre-mi-title-image-container {
+    width: 50%;
+  }
+  .sobre-mi-text-container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .sobre-mi-subtitle {
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(2rem, 6vw, 3rem);
+    color: var(--ghost-white);
+    font-weight: 400;
+    text-align: center;
+  }
+
+  .sobre-mi-image {
+    width: 400px;
+    height: 400px;
+    margin-left: 100px;
+    background-color: var(--purple);
+    border-radius: 100%;
+    aspect-ratio: 1/1 !important;
+    object-fit: contain;
+  }
+</style>

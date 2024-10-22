@@ -1,0 +1,92 @@
+---
+import githubIcon from "../assets/logos/github.png";
+import linkedinIcon from "../assets/logos/linkedin.png";
+import LinkIcon from "../ui/LinkIcon.astro";
+import Form from "../ui/Form.astro";
+import BigCircle from "../ui/BigCircle.astro";
+---
+
+<section class="container contacto-container">
+  <article class="contacto-title-container">
+    <h2>Trabajemos juntos</h2>
+    <aside class="contacto-info-container">
+      <div class="contacto-links-container">
+        <LinkIcon
+          icon={githubIcon}
+          href="https://github.com/juanmderosa"
+          width={45}
+          height={45}
+          alt="Github Icon"
+        />
+        <LinkIcon
+          icon={linkedinIcon}
+          href="https://linkedin.com/juanmderosa"
+          width={45}
+          height={45}
+          alt="Linkedin Icon"
+        />
+      </div>
+      <div class="contacto-data-container">
+        <p>Teléfono</p>
+        <p>+54 9 11 5463-2571</p>
+      </div>
+      <div class="contacto-data-container">
+        <p>E-mail</p>
+        <p>hola@juanmderosa-developer.com</p>
+      </div>
+    </aside>
+  </article>
+  <article class="contacto-form-container">
+    <Form />
+  </article>
+  <BigCircle
+    width="180px"
+    top="65%"
+    left="35%"
+    background="var(--purple)"
+    zindex="-1"
+  />
+  <BigCircle
+    width="180px"
+    top="70%"
+    left="40%"
+    background="repeating-linear-gradient(-45deg, var(--silver), var(--silver) 10px, transparent 10px, transparent 20px)"
+    zindex="-0"
+  />
+</section>
+
+<style>
+  .contacto-container {
+    display: flex;
+    width: 100%;
+    position: relative;
+  }
+
+  .contacto-title-container {
+    width: 50%;
+  }
+  .contacto-form-container {
+    width: 50%;
+  }
+
+  .contacto-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .contacto-links-container {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .contacto-data-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contacto-data-container p:first-of-type {
+    font-weight: 600;
+  }
+</style>

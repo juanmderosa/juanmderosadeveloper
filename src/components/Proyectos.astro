@@ -1,0 +1,53 @@
+---
+import "../styles/slider.css";
+import adviceGenerator from "../assets/screenshots/screenshot-advice-generator.png";
+import ageCalulator from "../assets/screenshots/screenshot-age-calculator.png";
+import commingSoon from "../assets/screenshots/screenshot-base-apparel-desktop.png";
+import expensesChart from "../assets/screenshots/screenshot-eccomerce-product-page.png";
+import { ProyectosSlider } from "../ui/ProyectosSlider";
+
+const projects = [
+  {
+    id: "1",
+    titulo: "Advice Generator App",
+    imagen: adviceGenerator,
+    description:
+      "Descripción de advice generator lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ",
+    livesite: "https://juanmderosa.github.io/advicegeneratorapp/",
+  },
+  {
+    id: "2",
+    titulo: "Age Calculator",
+    imagen: ageCalulator,
+    description:
+      "Descripción de age calculator lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ",
+    livesite: "https://juanmderosa.github.io/age-calculator/",
+  },
+  {
+    id: "3",
+    titulo: "Comming soon with Form",
+    imagen: commingSoon,
+    description:
+      "Descripción de comming soon lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ",
+    livesite: "https://juanmderosa.github.io/base-apparel-coming-soon/",
+  },
+  {
+    id: "4",
+    titulo: "Expenses Chart",
+    imagen: expensesChart,
+    description:
+      "Descripción de Expenses chart lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ",
+    livesite: "https://juanmderosa.github.io/expenses-chart-component",
+  },
+];
+---
+
+<section
+  class="container"
+  id="proyectos">
+  <h2>Proyectos</h2>
+  <ProyectosSlider
+    client:only="react"
+    projects={projects}
+  />
+</section>

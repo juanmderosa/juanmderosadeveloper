@@ -1,0 +1,142 @@
+---
+import Footer from "../components/Footer.astro";
+import Head from "../components/Head.astro";
+import Nav from "../components/Nav.astro";
+import WhatsappButton from "../ui/WhatsappButton.astro";
+---
+
+<!doctype html>
+<html lang="es">
+  <Head title="Juanmderosa Developer" />
+  <body>
+    <Nav />
+    <slot />
+    <Footer />
+    <WhatsappButton />
+  </body>
+</html>
+
+<style is:global>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+
+  :root {
+    --ghost-white: #e8e9f3ff;
+    --silver: #cececeff;
+    --french-gray: #a6a6a8ff;
+    --raisin-black: #272635ff;
+    --non-photo-blue: #b1e5f2ff;
+    --purple: #6c54ce;
+  }
+
+  body {
+    width: 100vw;
+    min-height: 100vh;
+    background-color: var(--raisin-black);
+    display: grid;
+    grid-template-rows: 1fr auto;
+    padding-inline: 4rem;
+    overflow-x: hidden;
+  }
+
+  p,
+  span,
+  strong,
+  li,
+  input,
+  textarea,
+  label,
+  a {
+    font-family: "Montserrat", sans-serif;
+    text-decoration: none;
+  }
+
+  p,
+  span,
+  strong,
+  li,
+  label {
+    color: var(--ghost-white);
+  }
+
+  input {
+    color: var(--raisin-black);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "League Spartan", sans-serif;
+    font-weight: 700;
+  }
+
+  .button {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    color: var(--ghost-white);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    align-self: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 100px;
+    box-shadow:
+      inset 0 5px 7px rgba(255, 255, 255, 0.35),
+      inset 0 -5px 7px rgba(0, 0, 0, 0.05),
+      inset 5px 0 7px rgba(109, 84, 207, 0.05),
+      inset -5px 0 7px rgba(109, 84, 207, 0.05),
+      0 2px 10px rgba(109, 84, 207, 0.1);
+    background: radial-gradient(
+      circle,
+      rgb(109, 84, 207) 0%,
+      rgba(62, 51, 107, 1) 89%
+    );
+    min-width: 250px;
+    height: 60px;
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(-1px -1px 2px rgba(62, 51, 107, 1))
+      drop-shadow(1px 1px 2px rgba(62, 51, 107, 1));
+    transition: all 0.5s ease-in;
+    font-size: 1rem;
+    &:hover {
+      filter: none;
+      box-shadow:
+        inset 0 10px 15px rgba(255, 255, 255, 0.35),
+        inset 0 -10px 15px rgba(0, 0, 0, 0.05),
+        inset 10px 0 15px rgba(109, 84, 207, 0.05),
+        inset -10px 0 15px rgba(109, 84, 207, 0.05),
+        0 5px 20px rgba(109, 84, 207, 0.1);
+    }
+  }
+
+  .container {
+    width: 100%;
+    padding-block: 6rem;
+
+    overflow-y: visible;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 6vw, 8rem);
+    text-transform: uppercase;
+    color: var(--ghost-white);
+    text-shadow: 4px 1px 0px var(--french-gray);
+  }
+
+  h3 {
+    font-size: clamp(2rem, 6vw, 3rem);
+    color: var(--ghost-white);
+    text-align: center;
+    text-shadow: 2px 1px 0px var(--french-gray);
+  }
+</style>

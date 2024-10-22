@@ -1,0 +1,274 @@
+---
+import { actions, isInputError } from "astro:actions";
+const result = Astro.getActionResult(actions.sendEmail);
+const inputErrors = isInputError(result?.error) ? result.error.fields : {};
+---
+
+<form id="contactForm">
+  <div class="input-container">
+    <label
+      for="nombre"
+      class="label"
+      >Nombre</label
+    >
+    <input
+      aria-describedby="error"
+      type="text"
+      name="nombre"
+      class="input-field"
+      id="nombre"
+      placeholder=""
+      required
+    />
+    <p
+      id="error-nombre"
+      class="input-text-error">
+    </p>
+    {inputErrors.nombre && <p id="error">{inputErrors.nombre.join(",")}</p>}
+  </div>
+  <div class="input-container">
+    <label
+      for="email"
+      class="label"
+      >Correo electrónico</label
+    >
+    <input
+      aria-describedby="error"
+      type="email"
+      name="email"
+      class="input-field"
+      id="email"
+      required
+    />
+    <p
+      id="error-email"
+      class="input-text-error">
+    </p>
+    {inputErrors.email && <p id="error">{inputErrors.email.join(",")}</p>}
+  </div>
+  <div class="input-container">
+    <label
+      for="telefono"
+      class="label"
+      >Teléfono</label
+    >
+    <input
+      aria-describedby="error"
+      type="text"
+      name="telefono"
+      class="input-field"
+      id="telefono"
+      required
+    />
+
+    {inputErrors.telefono && <p id="error">{inputErrors.telefono.join(",")}</p>}
+
+    <p
+      id="error-telefono"
+      class="input-text-error">
+    </p>
+  </div>
+  <div class="input-container">
+    <label
+      for="mensaje"
+      class="label"
+      >Mensaje</label
+    >
+    <textarea
+      aria-describedby="error"
+      name="mensaje"
+      class="textarea-field"
+      id="mensaje"
+      cols="3"
+      required
+    ></textarea>
+    <p
+      id="error-mensaje"
+      class="input-text-error">
+    </p>
+    {inputErrors.mensaje && <p id="error">{inputErrors.mensaje.join(",")}</p>}
+  </div>
+  <button
+    type="submit"
+    id="submitBtn"
+    class="button"
+    disabled>
+    Enviar
+  </button>
+</form>
+
+<p class="text-error">
+  No ha sido posible enviar el formulario. Por favor vuelve a intentarlo y
+  revisa que has completado todos los campos
+</p>
+<p class="text-confirmation">
+  ¡Gracias por escribirme! Pronto te estaré respondiendo.
+</p>
+
+<style>
+  #contactForm {
+    padding: 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .input-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .label {
+    margin-bottom: 0.3rem;
+    text-transform: uppercase;
+  }
+
+  .input-field,
+  .textarea-field {
+    background-color: var(--silver);
+    border: none;
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+    outline: none;
+    border-radius: 1rem;
+  }
+
+  .input-field {
+    height: 2rem;
+    color: var(--raisin-black);
+    font-weight: 500;
+  }
+  .textarea-field {
+    height: 4rem;
+    resize: none;
+  }
+
+  .text-error {
+    color: var(--non-photo-blue);
+    padding-inline: 1rem;
+    margin-top: 0.2rem;
+    text-align: center;
+    display: none;
+  }
+
+  .input-text-error {
+    color: var(--non-photo-blue);
+    padding-inline: 1rem;
+    margin-top: 0.2rem;
+    font-size: 0.7rem;
+  }
+
+  .text-confirmation {
+    padding-inline: 1rem;
+    margin-top: 0.2rem;
+    text-align: center;
+    color: var(--non-photo-blue);
+    display: none;
+  }
+
+  #submitBtn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+</style>
+
+<script>
+  import { actions } from "astro:actions";
+
+  // Array de campos requeridos
+  const requiredFields = ["nombre", "email", "telefono", "mensaje"];
+
+  const form = document.getElementById("contactForm") as HTMLFormElement;
+  const submitBtn = document.getElementById("submitBtn") as HTMLButtonElement;
+  let formSuccess = false;
+
+  function renderConfirmationMessage() {
+    const confirmationMessage = document.querySelector(
+      ".text-confirmation"
+    ) as HTMLParagraphElement;
+    if (formSuccess) {
+      confirmationMessage.innerHTML =
+        "¡Gracias por escribirme! Pronto te estaré respondiendo.";
+      confirmationMessage.style.display = "block";
+      submitBtn.disabled = true;
+      setTimeout(() => {
+        confirmationMessage.style.display = "none";
+      }, 5000);
+    } else {
+      confirmationMessage.style.display = "none";
+    }
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    const { data, error } = await actions.sendEmail(formData);
+    if (data?.success && !error) {
+      formSuccess = true;
+      form.reset();
+    } else {
+      formSuccess = false;
+    }
+    renderConfirmationMessage();
+  });
+
+  // Habilitar el botón si todos los campos están completos
+  form.addEventListener("input", () => {
+    const allFilled = requiredFields.every((field) => {
+      const input = document.getElementById(field) as
+        | HTMLInputElement
+        | HTMLTextAreaElement;
+      return input?.value.trim() !== "";
+    });
+    submitBtn.disabled = !allFilled;
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const inputs = document.querySelectorAll(".input-field, .textarea-field");
+
+    inputs.forEach((input) => {
+      input.addEventListener("blur", function () {
+        validateInput(input as HTMLInputElement | HTMLTextAreaElement);
+      });
+    });
+
+    function validateInput(input: HTMLInputElement | HTMLTextAreaElement) {
+      const errorElement = document.getElementById(`error-${input.name}`);
+      const label = input.previousElementSibling;
+
+      if (input.name === "email") {
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailPattern.test(input.value.trim())) {
+          errorElement!.textContent = "Por favor ingresa un correo válido";
+          errorElement!.classList.remove("hidden");
+          input.classList.add("error-border");
+          input.classList.remove("valid-input");
+
+          label?.classList.add("error-label");
+          return;
+        }
+      }
+
+      if (input.value.trim() === "") {
+        errorElement!.textContent = "Este campo es obligatorio";
+        errorElement!.classList.remove("hidden");
+        input.classList.add("error-border");
+        if (input.name !== "telefono") {
+          input.classList.remove("valid-input");
+        }
+        label?.classList.add("error-label");
+      } else {
+        errorElement!.textContent = "";
+        errorElement!.classList.add("hidden");
+        input.classList.remove("error-border");
+        if (input.name !== "telefono") {
+          input.classList.add("valid-input");
+        }
+        label?.classList.remove("error-label");
+      }
+    }
+  });
+</script>
