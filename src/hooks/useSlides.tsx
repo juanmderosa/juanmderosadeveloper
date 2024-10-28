@@ -20,17 +20,11 @@ export const useSlides = ({ slides }: any) => {
     setCurrentIndex(index);
   };
 
-  const visibleSlides = [
-    slides[currentIndex],
-    slides[(currentIndex + 1) % totalSlides],
-  ];
-
   return {
     currentIndex,
     totalSlides,
     goToNextSlide,
     goToPreviousSlide,
     goToSlide,
-    visibleSlides,
   };
 };

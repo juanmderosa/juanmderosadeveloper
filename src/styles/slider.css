@@ -26,6 +26,7 @@ h2 {
   flex: 1 0 100%;
   scroll-snap-align: start;
   object-fit: cover;
+  width: 100%;
 }
 
 .slider-description-container {
@@ -79,5 +80,37 @@ h2 {
       inset 10px 0 15px rgba(109, 84, 207, 0.05),
       inset -10px 0 15px rgba(109, 84, 207, 0.05),
       0 5px 20px rgba(109, 84, 207, 0.1);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .slider-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .slider-description-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding-inline: 1rem;
+  }
+  .project-description {
+    text-align: center;
+  }
+
+  .visit-site-button {
+    letter-spacing: 1px;
+    min-width: auto;
+    height: 2rem;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
   }
 }

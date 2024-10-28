@@ -37,6 +37,7 @@ import BigCircle from "../ui/BigCircle.astro";
     </aside>
   </article>
   <article class="contacto-form-container">
+    <h2>Trabajemos juntos</h2>
     <Form />
   </article>
   <BigCircle
@@ -69,6 +70,10 @@ import BigCircle from "../ui/BigCircle.astro";
     width: 50%;
   }
 
+  .contacto-form-container > h2 {
+    display: none;
+  }
+
   .contacto-info-container {
     display: flex;
     flex-direction: column;
@@ -88,5 +93,36 @@ import BigCircle from "../ui/BigCircle.astro";
 
   .contacto-data-container p:first-of-type {
     font-weight: 600;
+  }
+
+  @media screen and (max-width: 768px) {
+    .contacto-container {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+
+    .contacto-title-container {
+      width: 100%;
+    }
+    .contacto-title-container > h2 {
+      display: none;
+    }
+    .contacto-form-container {
+      width: 100%;
+    }
+
+    .contacto-form-container > h2 {
+      display: block;
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .contacto-info-container {
+      align-items: center;
+    }
+
+    .contacto-data-container {
+      align-items: center;
+    }
   }
 </style>

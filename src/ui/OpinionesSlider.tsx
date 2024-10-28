@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../styles/opinionesSlider.css";
+import "../styles/slidernav.css";
 import { useSlides } from "../hooks/useSlides";
 
 interface Opinion {
@@ -10,8 +11,36 @@ interface Opinion {
 
 export const OpinionSlider = ({ opiniones }: { opiniones: Opinion[] }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const { currentIndex, totalSlides, goToNextSlide, goToSlide, visibleSlides } =
-    useSlides({ slides: opiniones });
+  /*   const { currentIndex, totalSlides, goToNextSlide, goToSlide } = useSlides({
+    slides: opiniones,
+  });
+
+  const visibleSlides = [
+    opiniones[currentIndex],
+    opiniones[(currentIndex + 1) % totalSlides],
+  ]; */
+
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth); // Estado para detectar ancho de la pantalla
+
+  const { currentIndex, totalSlides, goToNextSlide, goToSlide } = useSlides({
+    slides: opiniones,
+  });
+
+  // Actualiza el ancho de la ventana al redimensionar
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Condición para mostrar 1 slide si la ventana es < 768px, 2 en caso contrario
+  const visibleSlides =
+    windowWidth < 550
+      ? [opiniones[currentIndex]]
+      : [opiniones[currentIndex], opiniones[(currentIndex + 1) % totalSlides]];
 
   useEffect(() => {
     if (!isHovered) {

@@ -11,7 +11,7 @@ const { width, left, top, background, zindex } = Astro.props;
 ---
 
 <div
-  class="circle-1"
+  class="bigCircle"
   style=`--background: 
     ${background}; 
     width: ${width}; 
@@ -21,10 +21,16 @@ const { width, left, top, background, zindex } = Astro.props;
 </div>
 
 <style>
-  .circle-1 {
+  .bigCircle {
     position: absolute;
     border-radius: 100%;
     aspect-ratio: 1/1;
     background: var(--background);
+  }
+
+  @media screen and (max-width: 768px) {
+    .bigCircle {
+      display: none;
+    }
   }
 </style>

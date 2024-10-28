@@ -1,14 +1,14 @@
 <div class="mini-circles-container">
-    <div class="mini-circle"></div>
-    <div class="mini-circle"></div>
-    <div class="mini-circle"></div>
-    <div class="mini-circle"></div>
-    <div class="mini-circle"></div>
-    <div class="mini-circle"></div>
+  <div class="mini-circle"></div>
+  <div class="mini-circle"></div>
+  <div class="mini-circle"></div>
+  <div class="mini-circle"></div>
+  <div class="mini-circle"></div>
+  <div class="mini-circle"></div>
 </div>
 
 <style>
-       .mini-circles-container{
+  .mini-circles-container {
     position: absolute;
     bottom: -30px;
     right: 0;
@@ -16,11 +16,17 @@
     justify-content: space-evenly;
     gap: 2.5rem;
     align-items: center;
-   }
-    .mini-circle{
-        width: 25px;
-        aspect-ratio: 1/1;
-        background: var(--ghost-white);
-        border-radius: 50%;
+  }
+  .mini-circle {
+    width: 25px;
+    aspect-ratio: 1/1;
+    background: var(--ghost-white);
+    border-radius: 50%;
+  }
+
+  @media screen and (max-width: 768px) {
+    .mini-circles-container {
+      display: none;
     }
+  }
 </style>

@@ -171,6 +171,13 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
     opacity: 0.7;
     cursor: not-allowed;
   }
+
+  @media screen and (max-width: 768px) {
+    #contactForm {
+      padding: 1rem;
+      margin-bottom: 2rem;
+    }
+  }
 </style>
 
 <script>

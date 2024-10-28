@@ -1,0 +1,31 @@
+---
+import ButtonLink from "../ui/ButtonLink.astro";
+import Nav from "../ui/Nav.astro";
+---
+
+<header>
+  <Nav />
+  <div class="button-container">
+    <ButtonLink
+      text="Contactame"
+      href="#contactForm"
+    />
+  </div>
+</header>
+
+<style>
+  header {
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 768px) {
+    header {
+      padding-block: 1rem;
+    }
+  }
+</style>
