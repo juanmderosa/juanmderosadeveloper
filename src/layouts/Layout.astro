@@ -1,7 +1,7 @@
 ---
 import Footer from "../components/Footer.astro";
 import Head from "../components/Head.astro";
-import Nav from "../components/Nav.astro";
+import Header from "../components/Header.astro";
 import WhatsappButton from "../ui/WhatsappButton.astro";
 ---
 
@@ -9,7 +9,7 @@ import WhatsappButton from "../ui/WhatsappButton.astro";
 <html lang="es">
   <Head title="Juanmderosa Developer" />
   <body>
-    <Nav />
+    <Header />
     <slot />
     <Footer />
     <WhatsappButton />
@@ -34,11 +34,11 @@ import WhatsappButton from "../ui/WhatsappButton.astro";
   }
 
   body {
-    width: 100vw;
+    min-width: 100%;
     min-height: 100vh;
     background-color: var(--raisin-black);
-    display: grid;
-    grid-template-rows: 1fr auto;
+    display: flex;
+    flex-direction: column;
     padding-inline: 4rem;
     overflow-x: hidden;
   }
@@ -122,7 +122,6 @@ import WhatsappButton from "../ui/WhatsappButton.astro";
   .container {
     width: 100%;
     padding-block: 6rem;
-
     overflow-y: visible;
   }
 
@@ -138,5 +137,28 @@ import WhatsappButton from "../ui/WhatsappButton.astro";
     color: var(--ghost-white);
     text-align: center;
     text-shadow: 2px 1px 0px var(--french-gray);
+  }
+
+  @media screen and (max-width: 768px) {
+    body {
+      padding-inline: 1em;
+    }
+
+    .container {
+      width: 100%;
+      padding-block: 1rem;
+      overflow-y: visible;
+    }
+
+    .button {
+      letter-spacing: 1px;
+      min-width: auto;
+      height: 2rem;
+      padding: 0.5rem 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.8rem;
+    }
   }
 </style>

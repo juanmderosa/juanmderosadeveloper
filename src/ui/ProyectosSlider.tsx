@@ -1,4 +1,5 @@
 import "../styles/slider.css";
+import "../styles/slidernav.css";
 import { useSlides } from "../hooks/useSlides";
 
 interface Proyecto {

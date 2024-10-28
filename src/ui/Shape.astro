@@ -1,52 +1,61 @@
 ---
 interface Props {
-	bgColor: string;
-    shapeWidth: string;
-    shapeHeight: string
-    borderRadius: string;
-    boxShadow: string;
-    position: string;
-    top: string;
-    left: string,
+  bgColor: string;
+  shapeWidth: string;
+  shapeHeight: string;
+  borderRadius: string;
+  position: string;
+  top: string;
+  left: string;
 }
 
-const {bgColor, shapeWidth, shapeHeight, borderRadius, boxShadow, position, top, left} = Astro.props
+const { bgColor, shapeWidth, shapeHeight, borderRadius, position, top, left } =
+  Astro.props;
 ---
 
-    <div class="shape" 
-    style=`
+<div
+  class="shape"
+  style=`
     --borderRadius: ${borderRadius}; 
-    box-shadow: ${boxShadow}; 
-    background: ${bgColor}; 
-    width: ${shapeWidth}; 
-    height: ${shapeHeight}; 
-    position: ${position}; 
-    top: ${top}; 
-    left: ${left}`>
-
+    --background: ${bgColor}; 
+    --width: ${shapeWidth}; 
+    --height: ${shapeHeight}; 
+    --position: ${position}; 
+    --top: ${top}; 
+    --left: ${left}`>
 </div>
 
-
 <style>
+  .shape {
+    border-radius: var(--borderRadius);
+    filter: saturate(1.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    position: var(--position);
+    top: var(--top);
+    left: var(--left);
+    width: var(--width);
+    height: var(--height);
+    background: var(--background);
+    box-shadow:
+      inset 0 10px 15px rgba(255, 255, 255, 0.35),
+      inset 0 -10px 15px rgba(0, 0, 0, 0.05),
+      inset 10px 0 15px rgba(109, 84, 207, 0.05),
+      inset -10px 0 15px rgba(109, 84, 207, 0.05),
+      0 5px 20px rgba(109, 84, 207, 0.1);
+  }
 
-    .shape {
-        border-radius: var(--borderRadius);
-        filter: saturate(1.5);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 1;
-}
-
-.title-container{
+  .title-container {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     gap: 1rem;
-}
+  }
 
-h1{
+  h1 {
     font-size: clamp(2rem, 5rem, 7rem);
     color: var(--ghost-white);
     text-transform: uppercase;
@@ -54,15 +63,22 @@ h1{
     font-weight: 700;
     width: 12ch;
     text-align: center;
+  }
+
+  strong {
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    color: var(--ghost-white);
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  @media screen and (max-width: 768px) {
+    .shape {
+      left: -2rem;
+      width: calc(100% + 2rem);
+      height: calc(var(--height) + 2rem);
     }
-
-    strong{
-		font-family: "Montserrat", sans-serif;	
-        text-align: center;
-        color: var(--ghost-white);
-        font-size: 1.4rem;
-        text-transform: uppercase;
-        font-weight: 400;
-
-}
+  }
 </style>

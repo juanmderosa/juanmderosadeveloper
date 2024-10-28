@@ -1,70 +1,68 @@
 ---
 import Shape from "../ui/Shape.astro";
-import HeroShapes from "../ui/HeroShapes.astro"
+import HeroShapes from "../ui/HeroShapes.astro";
 ---
+
 <section class="hero-container">
-        <article class="title-container">
-            <Shape
-            bgColor="radial-gradient(circle, rgb(109, 84, 207) 0%, rgba(62,51,107,1) 89%)" 
-            shapeWidth="calc(100% + 180px * 1.5)" 
-            shapeHeight='100%' 
-            borderRadius='0 170px 170px 0'   
-            boxShadow="inset 0 10px 15px rgba(255, 255, 255, 0.35), inset 0 -10px 15px rgba(0,0,0,.05), inset 10px 0 15px rgba(109, 84, 207,.05), inset -10px 0 15px rgba(109, 84, 207,.05), 0 5px 20px rgba(109, 84, 207,.1)"
-            position='absolute'
-            top="0"
-            left="-180px"
-            />    
-            <h1 class="title">Juan Martín De Rosa</h1>
-            <strong>Desarrollador Front End</strong>
-        </article>
-        <article class="subtitle-container">
-            <h3 class="subtitle">Convertí tu idea en un <br> sitio web increíble</h3>
-        </article>       
-        <HeroShapes/>
+  <article class="title-container">
+    <Shape
+      bgColor="radial-gradient(circle, rgb(109, 84, 207) 0%, rgba(62,51,107,1) 89%)"
+      shapeWidth="calc(100% + 180px * 1.5)"
+      shapeHeight="100%"
+      borderRadius="0 170px 170px 0"
+      position="absolute"
+      top="0"
+      left="-180px"
+    />
+    <h1 class="title">Juan Martín De Rosa</h1>
+    <strong>Desarrollador Front End</strong>
+  </article>
+  <article class="subtitle-container">
+    <h3 class="subtitle">Convertí tu idea en un <br /> sitio web increíble</h3>
+  </article>
+  <HeroShapes />
 </section>
 
 <style>
-    .hero-container{
+  .hero-container {
     margin-top: 3rem;
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: repeat(70%, 30%);
+    grid-template-rows: 70% 30%;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     height: calc(80vh - 5rem);
   }
 
-  .subtitle-container{
+  .subtitle-container {
     grid-column: 1/2;
     grid-row: 2/3;
-    padding-right:4rem;
+    padding-right: 4rem;
     margin-top: 2rem;
     padding-left: calc(180px / 2);
   }
 
+  .subtitle {
+    color: var(--ghost-white);
+    font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    text-align: center;
+  }
 
-    .subtitle{
-        color: var(--ghost-white);
-        font-size: clamp(1.5rem, 2.5vw, 2.5rem);
-		font-family: "Montserrat", sans-serif;	
-        font-weight: 700;
-        text-align: center;
-        
-    }
+  .title-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    padding-right: 4rem;
+    padding-left: calc(180px / 2);
+  }
 
-    .title-container{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        grid-column: 1/2;
-        grid-row: 1/2;
-        padding-right: 4rem;
-        padding-left: calc(180px / 2);
-    }
-
-    .title{
+  .title {
     font-size: clamp(2rem, 6vw, 8rem);
     color: var(--ghost-white);
     text-transform: uppercase;
@@ -74,17 +72,36 @@ import HeroShapes from "../ui/HeroShapes.astro"
     position: relative;
     z-index: 100;
     text-shadow: 4px 1px 0px var(--french-gray);
+  }
 
+  strong {
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    color: var(--ghost-white);
+    font-size: clamp(1rem, 2vw, 2rem);
+    text-transform: uppercase;
+    font-weight: 400;
+    position: relative;
+    z-index: 100;
+  }
+
+  @media screen and (max-width: 768px) {
+    .hero-container {
+      margin-top: 3rem;
+      display: block;
+      height: auto;
+      min-height: 40vh;
     }
 
-    strong{
-		font-family: "Montserrat", sans-serif;	
-        text-align: center;
-        color: var(--ghost-white);
-        font-size: clamp(1rem, 2vw, 2rem);
-        text-transform: uppercase;
-        font-weight: 400;
-        position: relative;
-        z-index: 100;
-}
+    .subtitle-container {
+      padding-right: 0;
+      padding-left: 0;
+      padding-top: 2rem;
+    }
+
+    .title-container {
+      padding: 0;
+      padding-top: 2rem;
+    }
+  }
 </style>
