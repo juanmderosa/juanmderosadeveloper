@@ -128,13 +128,11 @@
   }
 </style>
 
-<script>
+<script is:inline>
   document.addEventListener("DOMContentLoaded", function () {
-    const input = document.getElementById("mobile-nav") as HTMLInputElement;
-    const nav = document.getElementById("nav") as HTMLDivElement;
-    const menuContainer = document.querySelector(
-      ".menu-container"
-    ) as HTMLDivElement;
+    const input = document.getElementById("mobile-nav");
+    const nav = document.getElementById("nav");
+    const menuContainer = document.querySelector(".menu-container");
 
     input.addEventListener("change", () => {
       if (input.checked) {
