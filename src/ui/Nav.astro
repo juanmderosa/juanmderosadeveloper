@@ -1,17 +1,20 @@
 <div class="menu-container">
-  <label
-    for="mobile-nav"
-    class="menu-icon-container">
-    <span class="menu-bar"></span>
-    <span class="menu-bar"></span>
-    <span class="menu-bar"></span>
-  </label>
-  <input
-    type="checkbox"
-    name="mobile-nav"
-    id="mobile-nav"
-    class="icon"
-  />
+  <div class="checkbox-container">
+    <label
+      for="mobile-nav"
+      class="menu-icon-container">
+      <span class="menu-bar"></span>
+      <span class="menu-bar"></span>
+      <span class="menu-bar"></span>
+    </label>
+    <input
+      type="checkbox"
+      name="mobile-nav"
+      id="mobile-nav"
+      class="icon"
+    />
+  </div>
+
   <nav
     id="nav"
     class="menu-content no-show">
@@ -70,8 +73,22 @@
     display: block;
   }
 
+  .checkbox-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
   #mobile-nav {
-    display: none;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    top: -17px;
+    left: -17px;
+    appearance: none;
+    cursor: pointer;
   }
 
   .menu-content {
