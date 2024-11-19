@@ -27,6 +27,7 @@ h2 {
   scroll-snap-align: start;
   object-fit: cover;
   width: 100%;
+  border-radius: 1rem;
 }
 
 .slider-description-container {
