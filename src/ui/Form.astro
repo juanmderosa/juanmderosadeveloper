@@ -4,7 +4,7 @@ const result = Astro.getActionResult(actions.sendEmail);
 const inputErrors = isInputError(result?.error) ? result.error.fields : {};
 ---
 
-<form id="contactForm">
+<form id="contactame">
   <div class="input-container">
     <label
       for="nombre"
@@ -106,12 +106,13 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
 </p>
 
 <style>
-  #contactForm {
+  #contactame {
     padding: 2rem 4rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
     width: 100%;
+    align-items: stretch;
   }
 
   .input-container {
@@ -132,6 +133,7 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
     padding-block: 0.5rem;
     outline: none;
     border-radius: 1rem;
+    width: 100%;
   }
 
   .input-field {
@@ -173,7 +175,7 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
   }
 
   @media screen and (max-width: 768px) {
-    #contactForm {
+    #contactame {
       padding: 1rem;
       margin-bottom: 2rem;
     }

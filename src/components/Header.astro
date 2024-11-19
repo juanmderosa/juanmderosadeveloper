@@ -1,5 +1,6 @@
 ---
 import ButtonLink from "../ui/ButtonLink.astro";
+
 import Nav from "../ui/Nav.astro";
 ---
 
@@ -8,7 +9,7 @@ import Nav from "../ui/Nav.astro";
   <div class="button-container">
     <ButtonLink
       text="Contactame"
-      href="#contactForm"
+      href="#contactame"
     />
   </div>
 </header>
@@ -21,6 +22,13 @@ import Nav from "../ui/Nav.astro";
     align-items: center;
     padding-top: 1rem;
     width: 100%;
+    position: relative;
+  }
+
+  .button-container {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
   }
 
   @media screen and (max-width: 768px) {
