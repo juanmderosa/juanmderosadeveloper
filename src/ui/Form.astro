@@ -4,7 +4,9 @@ const result = Astro.getActionResult(actions.sendEmail);
 const inputErrors = isInputError(result?.error) ? result.error.fields : {};
 ---
 
-<form id="contactame">
+<form
+  id="contactame"
+  class="oculto">
   <div class="input-container">
     <label
       for="nombre"
