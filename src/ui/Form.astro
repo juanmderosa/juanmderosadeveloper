@@ -172,7 +172,7 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
   }
 
   #submitBtn:disabled {
-    opacity: 0.7;
+    opacity: 0.5;
     cursor: not-allowed;
   }
 
@@ -186,8 +186,6 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
 
 <script>
   import { actions } from "astro:actions";
-
-  // Array de campos requeridos
   const requiredFields = ["nombre", "email", "telefono", "mensaje"];
 
   const form = document.getElementById("contactame") as HTMLFormElement;
@@ -257,9 +255,7 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
         if (!emailPattern.test(input.value.trim())) {
           errorElement!.textContent = "Por favor ingresa un correo válido";
           errorElement!.classList.remove("hidden");
-          input.classList.add("error-border");
           input.classList.remove("valid-input");
-
           label?.classList.add("error-label");
           return;
         }
@@ -268,7 +264,6 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
       if (input.value.trim() === "") {
         errorElement!.textContent = "Este campo es obligatorio";
         errorElement!.classList.remove("hidden");
-        input.classList.add("error-border");
         if (input.name !== "telefono") {
           input.classList.remove("valid-input");
         }
@@ -276,7 +271,6 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
       } else {
         errorElement!.textContent = "";
         errorElement!.classList.add("hidden");
-        input.classList.remove("error-border");
         if (input.name !== "telefono") {
           input.classList.add("valid-input");
         }
