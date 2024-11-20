@@ -139,6 +139,17 @@ import WhatsappButton from "../ui/WhatsappButton.astro";
     text-shadow: 2px 1px 0px var(--french-gray);
   }
 
+  .oculto {
+    transform: scale(0.8);
+    opacity: 0;
+    transition: all 1s ease-in;
+  }
+
+  .mostrar {
+    transform: scale(1);
+    opacity: 1;
+  }
+
   @media screen and (max-width: 768px) {
     body {
       padding-inline: 1em;
@@ -146,7 +157,7 @@ import WhatsappButton from "../ui/WhatsappButton.astro";
 
     .container {
       width: 100%;
-      padding-block: 1rem;
+      padding-block: 3rem;
       overflow-y: visible;
     }
 
@@ -163,17 +174,6 @@ import WhatsappButton from "../ui/WhatsappButton.astro";
     h3 {
       text-shadow: 1px 1px 0px var(--french-gray);
     }
-  }
-
-  .oculto {
-    transform: scale(0.8);
-    opacity: 0;
-    transition: all 1s ease-in;
-  }
-
-  .mostrar {
-    transform: scale(1);
-    opacity: 1;
   }
 </style>
 
