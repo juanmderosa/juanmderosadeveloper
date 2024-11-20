@@ -215,11 +215,13 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
     e.preventDefault();
 
     const formData = new FormData(form);
-
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Enviando...";
     const { data, error } = await actions.sendEmail(formData);
     if (data?.success && !error) {
       formSuccess = true;
       form.reset();
+      submitBtn.textContent = "Enviar";
     } else {
       formSuccess = false;
     }
