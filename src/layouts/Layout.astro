@@ -164,4 +164,17 @@ import WhatsappButton from "../ui/WhatsappButton.astro";
       text-shadow: 1px 1px 0px var(--french-gray);
     }
   }
+
+  .oculto {
+    transform: scale(0.8);
+    opacity: 0;
+    transition: all 1s ease-in;
+  }
+
+  .mostrar {
+    transform: scale(1);
+    opacity: 1;
+  }
 </style>
+
+<script src="../services/intersectionObserver.js"></script>
