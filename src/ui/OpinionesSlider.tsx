@@ -3,27 +3,24 @@ import "../styles/opinionesSlider.css";
 import "../styles/slidernav.css";
 import { useSlides } from "../hooks/useSlides";
 
-interface Opinion {
-  nombre: string;
-  empresa: string;
+interface OpinionData {
+  name: string;
+  company: string;
   opinion: string;
 }
+interface Opinion {
+  id: string;
+  slug: string;
+  data: OpinionData;
+}
 
-export const OpinionSlider = ({ opiniones }: { opiniones: Opinion[] }) => {
+export const OpinionSlider = ({ opinions }: { opinions: Opinion[] }) => {
   const [isHovered, setIsHovered] = useState(false);
-  /*   const { currentIndex, totalSlides, goToNextSlide, goToSlide } = useSlides({
-    slides: opiniones,
-  });
-
-  const visibleSlides = [
-    opiniones[currentIndex],
-    opiniones[(currentIndex + 1) % totalSlides],
-  ]; */
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth); // Estado para detectar ancho de la pantalla
 
   const { currentIndex, totalSlides, goToNextSlide, goToSlide } = useSlides({
-    slides: opiniones,
+    slides: opinions,
   });
 
   // Actualiza el ancho de la ventana al redimensionar
@@ -39,8 +36,8 @@ export const OpinionSlider = ({ opiniones }: { opiniones: Opinion[] }) => {
   // Condición para mostrar 1 slide si la ventana es < 768px, 2 en caso contrario
   const visibleSlides =
     windowWidth < 550
-      ? [opiniones[currentIndex]]
-      : [opiniones[currentIndex], opiniones[(currentIndex + 1) % totalSlides]];
+      ? [opinions[currentIndex]]
+      : [opinions[currentIndex], opinions[(currentIndex + 1) % totalSlides]];
 
   useEffect(() => {
     if (!isHovered) {
@@ -60,9 +57,9 @@ export const OpinionSlider = ({ opiniones }: { opiniones: Opinion[] }) => {
               className="opinion-container"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}>
-              <h4 className="opinion-name">{opinion.nombre}</h4>
-              <h5 className="opinion-empresa">{opinion.empresa}</h5>
-              <p className="opinion-opinion">{opinion.opinion}</p>
+              <h4 className="opinion-name">{opinion.data.name}</h4>
+              <h5 className="opinion-empresa">{opinion.data.company}</h5>
+              <p className="opinion-opinion">{opinion.data.opinion}</p>
             </aside>
           ))}
         </div>
