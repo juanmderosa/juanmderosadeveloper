@@ -14,7 +14,7 @@ interface Opinion {
   data: OpinionData;
 }
 
-export const OpinionSlider = ({ opinions }: { opinions: Opinion[] }) => {
+export const OpinionSlider = ({ opinions }: any) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth); // Estado para detectar ancho de la pantalla

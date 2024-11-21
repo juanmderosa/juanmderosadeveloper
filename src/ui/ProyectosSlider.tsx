@@ -15,7 +15,7 @@ interface Proyecto {
   slug: string;
   data: ProyectoData;
 }
-export const ProyectosSlider = ({ projects }: { projects: Proyecto[] }) => {
+export const ProyectosSlider = ({ projects }: any) => {
   const {
     currentIndex,
     goToNextSlide,
