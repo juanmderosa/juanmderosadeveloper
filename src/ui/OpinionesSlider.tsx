@@ -41,7 +41,7 @@ export const OpinionSlider = ({ opinions }: any) => {
 
   useEffect(() => {
     if (!isHovered) {
-      const intervalId = setInterval(goToNextSlide, 5000);
+      const intervalId = setInterval(goToNextSlide, 5000) as NodeJS.Timeout;
 
       return () => clearInterval(intervalId);
     }
