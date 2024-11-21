@@ -1,6 +1,7 @@
 import { z, defineCollection } from "astro:content";
 
 const projects = defineCollection({
+  type: "data",
   schema: z.object({
     id: z.string(),
     title: z.string(),
@@ -11,6 +12,7 @@ const projects = defineCollection({
 });
 
 const opinions = defineCollection({
+  type: "data",
   schema: z.object({
     name: z.string(),
     company: z.string().optional(),
