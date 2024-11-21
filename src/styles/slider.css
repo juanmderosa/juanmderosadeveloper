@@ -1,5 +1,5 @@
-h2 {
-  margin-bottom: 2rem;
+.proyectos-main-title {
+  margin-bottom: 3rem;
 }
 
 .proyectos-slider-container {
@@ -15,7 +15,6 @@ h2 {
 
 .slider {
   display: flex;
-  aspect-ratio: 16/9;
   overflow-x: hidden;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
@@ -25,7 +24,7 @@ h2 {
 .slider img {
   flex: 1 0 100%;
   scroll-snap-align: start;
-  object-fit: cover;
+  object-fit: contain;
   width: 100%;
   border-radius: 1rem;
 }
@@ -40,8 +39,7 @@ h2 {
   padding-inline: 1rem;
 }
 .project-description {
-  text-align: left;
-  width: fit-content;
+  text-align: center;
 }
 
 .visit-site-button {

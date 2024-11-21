@@ -1,45 +1,8 @@
 ---
 import BigCircle from "../ui/BigCircle.astro";
 import { OpinionSlider } from "../ui/OpinionesSlider";
-
-const opiniones = [
-  {
-    nombre: "Laura Tonelli",
-    empresa: "Casa Viva",
-    opinion:
-      "Lo primero que busca un cliente es catexis. Catexis es la sensación de que aquí voy a encontrar la solución que necesito. Bueno, Juan transmite esa sensación y le hace justicia. Llegué a Juan por un asunto que no había podido resolver de otras formas, y en un pim pam pum me dejó la web funcionando 10 puntos.",
-  },
-  {
-    nombre: "Lluis Erena",
-    empresa: "Revanguard",
-    opinion:
-      "Su capacidad para tomar decisiones efectivas en momentos puntuales fue de gran ayuda para el éxito de los objetivos propuestos durante el desarrollo, asegurando siempre la alineación con la visión del equipo. En su rol como desarrollador Front-End utilizando React, Juan mostró una profunda comprensión técnica y habilidad para implementar interfaces de usuario complejas y responsivas.",
-  },
-  {
-    nombre: "Yan Chota",
-    empresa: "Growsendit",
-    opinion:
-      "Excelente trabajo, una persona muy paciente y atento a cualquier solicitud de cambio. Lo recomiendo al 100%",
-  },
-  {
-    nombre: " Alvaro Muñozledo",
-    empresa: "",
-    opinion:
-      "Juan tiene una excelente comunicación y procesos de trabajo. Es la primer vez que trabajo con el y me gustaría continuar. Recomiendo a Juan, es un profesional y apasionado de su trabajo.",
-  },
-  {
-    nombre: " Jessika Tapia",
-    empresa: "Efe-Chile",
-    opinion:
-      "Juan es muy amable y muy comprometido con su trabajo. es fácil hablar con el y lo principal es que tiene mucha paciencia, en escucharte y entender lo que uno necesita y buscas. Entrega su trabajo en los tiempos establecido en común. Lo recomendaría siempre!! ",
-  },
-  {
-    nombre: " Natacha de la Penna",
-    empresa: "Easy Agency",
-    opinion:
-      "Juan pudo resolver todo lo que necesitabamos y más incluso. Muy profesional! gracias!!",
-  },
-];
+import { getCollection } from "astro:content";
+const opinions = await getCollection("opinions");
 ---
 
 <section
@@ -49,7 +12,7 @@ const opiniones = [
   <h2>Opiniones</h2>
   <OpinionSlider
     client:only="react"
-    opiniones={opiniones}
+    opinions={opinions}
   />
   <BigCircle
     width="300px"

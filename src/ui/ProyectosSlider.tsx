@@ -2,12 +2,18 @@ import "../styles/slider.css";
 import "../styles/slidernav.css";
 import { useSlides } from "../hooks/useSlides";
 
-interface Proyecto {
+interface ProyectoData {
   id: string;
-  titulo: string;
-  imagen: ImageMetadata;
+  title: string;
+  image: string;
   description: string;
   livesite: string;
+}
+
+interface Proyecto {
+  id: string;
+  slug: string;
+  data: ProyectoData;
 }
 export const ProyectosSlider = ({ projects }: { projects: Proyecto[] }) => {
   const {
@@ -26,16 +32,19 @@ export const ProyectosSlider = ({ projects }: { projects: Proyecto[] }) => {
         <div className="slider">
           <img
             id={`slide-${projects[currentIndex].id}`}
-            src={projects[currentIndex].imagen.src}
-            alt={projects[currentIndex].titulo}
+            src={projects[currentIndex].data.image}
+            alt={projects[currentIndex].data.title}
           />
         </div>
         <div className="slider-description-container">
+          <h3>{projects[currentIndex].data.title}</h3>
           <p className="project-description">
-            {projects[currentIndex].description}
+            {projects[currentIndex].data.description}
           </p>
           <a
-            href={projects[currentIndex].livesite}
+            href={projects[currentIndex].data?.livesite}
+            target="_blank"
+            rel="noopener noreferrer"
             className="visit-site-button">
             Visitar sitio
           </a>
