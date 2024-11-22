@@ -1,4 +1,6 @@
 ---
+import Analytics from "./Analytics.astro";
+
 interface Props {
   title: string;
 }
@@ -7,6 +9,7 @@ const { title } = Astro.props;
 ---
 
 <head>
+  <Analytics />
   <meta charset="UTF-8" />
   <link
     rel="sitemap"
