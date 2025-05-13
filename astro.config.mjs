@@ -11,6 +11,5 @@ export default defineConfig({
   site: "https://juanmderosa-developer.com",
   integrations: [react(), sitemap(), playformCompress()],
   output: "server",
-
   adapter: vercel(),
 });
