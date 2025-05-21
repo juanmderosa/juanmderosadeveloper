@@ -15,7 +15,6 @@ export const server = {
       recaptchaToken: z.string(),
     }),
     handler: async (input) => {
-      console.log(import.meta.env.RECAPTCHA_SECRET_KEY);
       try {
         const response = await fetch(
           "https://www.google.com/recaptcha/api/siteverify",
@@ -32,7 +31,6 @@ export const server = {
         );
 
         const result = await response.json();
-        console.log(result);
         if (!result.success || result.score < 0.5) {
           throw new Error("Falló la verificación de reCAPTCHA");
         }
