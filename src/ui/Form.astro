@@ -185,6 +185,7 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
 </style>
 
 <script>
+  declare const grecaptcha: any;
   import { actions } from "astro:actions";
   const requiredFields = ["nombre", "email", "telefono", "mensaje"];
 
@@ -215,6 +216,13 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
     const formData = new FormData(form);
     submitBtn.disabled = true;
     submitBtn.textContent = "Enviando...";
+
+     // Obtener el token de reCAPTCHA v3
+     console.log(import.meta.env.PUBLIC_RECAPTCHA_KEY)
+  const token = await grecaptcha.execute(import.meta.env.PUBLIC_RECAPTCHA_KEY, { action: "submit" });
+  formData.append("recaptchaToken", token); 
+
+  
     const { data, error } = await actions.sendEmail(formData);
     if (data?.success && !error) {
       formSuccess = true;
