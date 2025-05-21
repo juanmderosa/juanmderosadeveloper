@@ -12,9 +12,29 @@ export const server = {
       email: z.string().email(),
       telefono: z.string(),
       mensaje: z.string(),
+      recaptchaToken: z.string(),
     }),
     handler: async (input) => {
       try {
+        const response = await fetch(
+          "https://www.google.com/recaptcha/api/siteverify",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: new URLSearchParams({
+              secret: import.meta.env.RECAPTCHA_SECRET_KEY,
+              response: input.recaptchaToken,
+            }),
+          }
+        );
+
+        const result = await response.json();
+        if (!result.success || result.score < 0.5) {
+          throw new Error("Falló la verificación de reCAPTCHA");
+        }
+
         const emailContent = {
           from: `"juanmderosa-developer.com" <${input.email}>`,
           to: import.meta.env.MAILING_USER,
@@ -28,9 +48,9 @@ export const server = {
           `,
         };
 
-        const result = await mailingService.sendMail(emailContent);
+        const mailResult = await mailingService.sendMail(emailContent);
 
-        if (result.accepted.length > 0) {
+        if (mailResult.accepted.length > 0) {
           return { success: true };
         } else {
           throw new Error("Error al enviar el correo");
