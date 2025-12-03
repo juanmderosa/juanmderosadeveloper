@@ -1,0 +1,7 @@
+---
+id: "6"
+title: "Impoelectro"
+image: "../../assets/projects/impoelectro.png"
+description: "Sitio web con E-commerce para Impoelectro, empresa colombiana que se dedica a la importación de partes electricas. La tienda cuenta con carrito de compras, filtros por marca y categorías y administración de productos. Realizado con Wordpress y Woocommerce."
+livesite: "https://impoelectro.com/"
+---
