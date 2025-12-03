@@ -1,7 +1,7 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
-import vercel from "@astrojs/vercel/serverless";
+import vercel from "@astrojs/vercel";
 import sitemap from "@astrojs/sitemap";
 import playformCompress from "@playform/compress";
 
@@ -11,6 +11,6 @@ export default defineConfig({
   integrations: [react(), sitemap(), playformCompress()],
   output: "server",
   adapter: vercel({
-    imageService: false,
+    imageService: true,
   }),
 });

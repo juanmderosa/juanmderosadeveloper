@@ -1,0 +1,7 @@
+---
+id: "4"
+title: "Growsendit"
+image: "../../assets/projects/growsendit.png"
+description: "Landing page para Growsendit, empresa de marketing digital que ofrece servicios de publicidad en Google Adwords. Realizado con Astro Js, Tailwind y React."
+livesite: "https://www.growsendit.com/"
+---

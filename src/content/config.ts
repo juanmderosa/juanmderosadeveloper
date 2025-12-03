@@ -1,14 +1,15 @@
 import { z, defineCollection } from "astro:content";
 
 const projects = defineCollection({
-  type: "data",
-  schema: z.object({
-    id: z.string(),
-    title: z.string(),
-    image: z.string(),
-    livesite: z.string(),
-    description: z.string(),
-  }),
+  type: "content",
+  schema: ({ image }) =>
+    z.object({
+      id: z.string(),
+      title: z.string(),
+      image: image(),
+      description: z.string(),
+      livesite: z.string().url(),
+    }),
 });
 
 const opinions = defineCollection({
