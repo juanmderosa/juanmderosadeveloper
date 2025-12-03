@@ -31,6 +31,7 @@ export const server = {
         );
 
         const result = await response.json();
+
         if (!result.success || result.score < 0.5) {
           throw new Error("Falló la verificación de reCAPTCHA");
         }
