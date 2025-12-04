@@ -2,22 +2,12 @@ import { useEffect, useState } from "react";
 import "../styles/opinionesSlider.css";
 import "../styles/slidernav.css";
 import { useSlides } from "../hooks/useSlides";
+import type { OpinionData } from "../types/types";
 
-interface OpinionData {
-  name: string;
-  company: string;
-  opinion: string;
-}
-interface Opinion {
-  id: string;
-  slug: string;
-  data: OpinionData;
-}
-
-export const OpinionSlider = ({ opinions }: any) => {
+export const OpinionSlider = ({ opinions }: { opinions: OpinionData[] }) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth); // Estado para detectar ancho de la pantalla
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const { currentIndex, totalSlides, goToNextSlide, goToSlide } = useSlides({
     slides: opinions,
@@ -51,9 +41,9 @@ export const OpinionSlider = ({ opinions }: any) => {
     <div className="opiniones-slider-container">
       <div className="opiniones-slider">
         <div className="opiniones-container">
-          {visibleSlides.map((opinion, index) => (
+          {visibleSlides.map((opinion) => (
             <aside
-              key={index}
+              key={opinion.data.company}
               className="opinion-container"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}>

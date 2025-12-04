@@ -1,27 +1,7 @@
 import "../styles/slider.css";
 import "../styles/slidernav.css";
 import { useSlides } from "../hooks/useSlides";
-
-interface ProyectoImage {
-  src: string;
-  width: number;
-  height: number;
-  format: string;
-}
-
-interface ProyectoData {
-  id: string;
-  title: string;
-  image: ProyectoImage;
-  description: string;
-  livesite: string;
-}
-
-interface Proyecto {
-  id: string;
-  slug: string;
-  data: ProyectoData;
-}
+import type { Proyecto } from "../types/types";
 
 export const ProyectosSlider = ({ projects }: { projects: Proyecto[] }) => {
   const {
