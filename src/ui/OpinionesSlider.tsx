@@ -10,7 +10,6 @@ interface OpinionData {
 }
 interface Opinion {
   id: string;
-  slug: string;
   data: OpinionData;
 }
 
