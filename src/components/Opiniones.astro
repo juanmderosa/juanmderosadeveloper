@@ -2,7 +2,11 @@
 import BigCircle from "../ui/BigCircle.astro";
 import { OpinionSlider } from "../ui/OpinionesSlider";
 import { getCollection } from "astro:content";
-const opinions = await getCollection("opinions");
+import type { OpinionData } from "../types/types";
+
+const opinions: OpinionData[] = await getCollection("opinions");
+
+console.log(opinions);
 ---
 
 <section
