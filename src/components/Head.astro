@@ -46,9 +46,9 @@ const { title } = Astro.props;
     rel="stylesheet"
   />
   <title>{title}</title>
-<script
-  src={`https://www.google.com/recaptcha/api.js?render=${import.meta.env.PUBLIC_RECAPTCHA_KEY}`}
-  async
-  defer>
-</script>
+  <script
+    src={`https://www.google.com/recaptcha/api.js?render=${import.meta.env.PUBLIC_RECAPTCHA_KEY}`}
+    async
+    defer
+  ></script>
 </head>
