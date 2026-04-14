@@ -2,11 +2,11 @@
 import { ProyectosSlider } from "../ui/ProyectosSlider";
 import { getCollection } from "astro:content";
 
-const projects = await getCollection("projects");
+const projects = (await getCollection("projects")).map((p) => p.data);
 ---
 
 <section
-  class="container oculto"
+  class="container"
   id="proyectos">
   <h2 class="proyectos-main-title">Proyectos</h2>
   <ProyectosSlider

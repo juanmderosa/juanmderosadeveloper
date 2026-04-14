@@ -28,8 +28,15 @@ interface ProyectoData {
   livesite: string;
 }
 
-export interface Proyecto {
+export type Proyecto = {
   id: string;
-  slug: string;
-  data: ProyectoData;
-}
+  title: string;
+  image: {
+    src: string;
+    width: number;
+    height: number;
+    format: string;
+  };
+  description: string;
+  livesite: string;
+};
