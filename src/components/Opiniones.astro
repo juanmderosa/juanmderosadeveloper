@@ -5,13 +5,11 @@ import { getCollection } from "astro:content";
 import type { OpinionData } from "../types/types";
 
 const opinions: OpinionData[] = await getCollection("opinions");
-
-console.log(opinions);
 ---
 
 <section
   id="opiniones"
-  class="container oculto"
+  class="container"
   style={{ position: "relative" }}>
   <h2>Opiniones</h2>
   <OpinionSlider

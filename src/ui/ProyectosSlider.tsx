@@ -14,7 +14,7 @@ export const ProyectosSlider = ({ projects }: { projects: Proyecto[] }) => {
     slides: projects,
   });
 
-  const current = projects[currentIndex].data;
+  const current = projects[currentIndex];
 
   return (
     <div className="proyectos-slider-container">
