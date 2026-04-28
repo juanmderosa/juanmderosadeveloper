@@ -2,6 +2,6 @@
 id: "10"
 title: "Verticallis Industrial"
 image: "../../assets/projects/verticallis.png"
-description: "Sitio web con E-commerce para RN Distribuciones, empresa que distribuye accesorios, hardware e insumos tecnológicos. Cuenta con una funcionalidad que permite ver solo los precios a los usuarios registrados y autorizados por el administrador, lo que permite también la utilización de varias listas de precios para distintos clientes. Realizado con Wordpress y Woocommerce."
+description: "Sitio web institucional de Verticallis Industrial, empresa experta en inspección, certificación y entrenamiento en izajes. Realizada con Wordpress."
 livesite: "https://verticallisindustrial.com/"
 ---
