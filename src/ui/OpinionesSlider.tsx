@@ -47,9 +47,16 @@ export const OpinionSlider = ({ opinions }: { opinions: OpinionData[] }) => {
               className="opinion-container"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}>
-              <h4 className="opinion-name">{opinion.data.name}</h4>
-              <h5 className="opinion-empresa">{opinion.data.company}</h5>
-              <p className="opinion-opinion">{opinion.data.opinion}</p>
+              <p className="opinion-opinion">"{opinion.data.opinion}"</p>
+              <div className="opinion-person">
+                <span className="opinion-avatar">
+                  {opinion.data.name.charAt(0)}
+                </span>
+                <div>
+                  <h4 className="opinion-name">{opinion.data.name}</h4>
+                  <h5 className="opinion-empresa">{opinion.data.company}</h5>
+                </div>
+              </div>
             </aside>
           ))}
         </div>

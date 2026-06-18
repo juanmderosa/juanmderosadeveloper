@@ -1,5 +1,4 @@
 ---
-import BigCircle from "../ui/BigCircle.astro";
 import { OpinionSlider } from "../ui/OpinionesSlider";
 import { getCollection } from "astro:content";
 import type { OpinionData } from "../types/types";
@@ -9,29 +8,27 @@ const opinions: OpinionData[] = await getCollection("opinions");
 
 <section
   id="opiniones"
-  class="container"
-  style={{ position: "relative" }}>
-  <h2>Opiniones</h2>
+  class="container">
+  <div class="opinions-heading">
+    <p class="section-kicker">Testimonios</p>
+    <h2>Opiniones</h2>
+  </div>
   <OpinionSlider
     client:only="react"
     opinions={opinions}
-  />
-  <BigCircle
-    width="300px"
-    top="60%"
-    left="75%"
-    background="repeating-linear-gradient(45deg, var(--silver), var(--silver) 10px, transparent 10px, transparent 20px)"
-    zindex="-1"
   />
 </section>
 
 <style>
   #opiniones {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+  }
+
+  .opinions-heading {
     margin-bottom: 2rem;
-    padding-top: 2rem;
+  }
+
+  .opinions-heading h2 {
+    margin-bottom: 0;
   }
 </style>

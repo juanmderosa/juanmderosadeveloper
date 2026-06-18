@@ -1,6 +1,7 @@
 .opiniones-slider-container {
   position: relative;
   width: 100%;
+  padding-bottom: 2.5rem;
 }
 
 .opiniones-slider {
@@ -12,39 +13,74 @@
 .opiniones-container {
   display: flex;
   width: 100%;
-  gap: 2rem;
+  gap: 1rem;
   justify-content: center;
 }
 
 .opinion-container {
-  height: 350px;
-  flex: 0 0 calc(40%);
-  background-color: var(--silver);
-  padding: 2rem;
-  border-radius: 1rem;
-  text-align: center;
+  min-height: 17rem;
+  flex: 0 0 min(50%, 37rem);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.07), transparent 32%),
+    var(--surface-glass);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  text-align: left;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  justify-content: space-between;
+  gap: 1.5rem;
+  backdrop-filter: blur(16px);
+  transition:
+    border-color 300ms ease,
+    box-shadow 300ms ease,
+    transform 300ms ease;
+}
+
+.opinion-container:hover {
+  border-color: rgba(203, 190, 255, 0.45);
+  box-shadow: 0 8px 32px rgba(109, 84, 207, 0.2);
+  transform: translateY(-2px);
+}
+
+.opinion-person {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.opinion-avatar {
+  width: 2.25rem;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: rgba(109, 84, 207, 0.18);
+  color: var(--primary);
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
 }
 
 .opinion-name {
-  font-size: clamp(1.5rem, 3vw, 3rem);
-  color: var(--raisin-black);
-  text-shadow: 1px 1px 2px var(--raisin-black);
-  text-align: center;
+  font-size: 0.95rem;
+  color: var(--on-surface);
+  text-align: left;
 }
 
 .opinion-empresa {
-  font-size: clamp(1rem, 1vw, 2rem);
-  color: var(--raisin-black);
-  text-align: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  color: var(--primary);
+  text-align: left;
+  font-weight: 500;
 }
 
 .opinion-opinion {
-  text-align: center;
-  width: 90%;
-  color: var(--raisin-black);
+  text-align: left;
+  width: 100%;
+  color: var(--on-surface-variant);
+  font-style: italic;
 }
 
 @media screen and (max-width: 550px) {
@@ -55,13 +91,12 @@
 
   .opiniones-container {
     gap: 0rem;
-    height: 55vh;
   }
 
   .opinion-container {
     flex: 0 0 100%;
     max-width: 100%;
-    height: 100%;
+    min-height: 20rem;
   }
 
   .opinion-opinion {
