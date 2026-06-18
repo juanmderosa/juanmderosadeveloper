@@ -9,7 +9,7 @@ export const server = {
     accept: "form",
     input: z.object({
       nombre: z.string(),
-      email: z.string().email(),
+      email: z.email(),
       telefono: z.string(),
       mensaje: z.string(),
       recaptchaToken: z.string(),

@@ -1,11 +1,12 @@
 ---
 const year = new Date().getFullYear();
+const { t } = Astro.props;
 ---
 
 <footer class="footer">
   <div class="footer-inner">
     <p>JuanmderosaDeveloper</p>
-    <nav aria-label="Enlaces de pie">
+    <nav aria-label={t.footer.aria}>
       <a
         href="https://www.linkedin.com/in/juanmderosa/"
         target="_blank"
@@ -18,9 +19,9 @@ const year = new Date().getFullYear();
         rel="noopener noreferrer"
         >GitHub</a
       >
-      <a href="#contactame">Contact</a>
+      <a href="#contactame">{t.footer.contact}</a>
     </nav>
-    <p>© {year} Juan Martín De Rosa. Todos los derechos reservados.</p>
+    <p>© {year} Juan Martín De Rosa. {t.footer.rights}</p>
   </div>
 </footer>
 

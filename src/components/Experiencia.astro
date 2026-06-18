@@ -1,53 +1,17 @@
 ---
-const services = [
-  {
-    icon: "</>",
-    title: "Desarrollo Web",
-    description:
-      "Desarrollo sitios web a medida, landing pages y experiencias optimizadas para conversión y rendimiento.",
-  },
-  {
-    icon: "{}",
-    title: "Automatizaciones",
-    description:
-      "Conecto herramientas, APIs y flujos de trabajo para reducir tareas manuales repetitivas.",
-  },
-  {
-    icon: "FS",
-    title: "Desarrollo Fullstack",
-    description:
-      "Implemento interfaces, lógica de backend e integraciones dentro del ecosistema JavaScript.",
-  },
-  {
-    icon: "AI",
-    title: "Agentes AI & Chatbots",
-    description:
-      "Integro asistentes conversacionales y herramientas de IA para mejorar atención y operación.",
-  },
-  {
-    icon: "API",
-    title: "Integración de APIs",
-    description:
-      "Conecto sistemas externos con plataformas existentes para sincronizar datos y procesos.",
-  },
-  {
-    icon: "OPS",
-    title: "Mantenimiento",
-    description:
-      "Soporte técnico, mejoras progresivas, configuración de hosting, dominios y optimización continua.",
-  },
-];
+const { t } = Astro.props;
+const services = t.experience.services;
 ---
 
 <section class="container services-container" id="experiencia">
   <div class="section-heading">
-    <p class="section-kicker">Servicios</p>
-    <h2>Experiencia & Servicios</h2>
+    <p class="section-kicker">{t.experience.kicker}</p>
+    <h2>{t.experience.title}</h2>
   </div>
 
   <div class="services-grid">
     {
-      services.map((service) => (
+      services.map((service: { icon: string; title: string; description: string }) => (
         <article class="service-card glass-card">
           <span class="service-icon">{service.icon}</span>
           <h3>{service.title}</h3>

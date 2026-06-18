@@ -4,7 +4,17 @@ import { useRef, useState, type PointerEvent } from "react";
 import { useSlides } from "../hooks/useSlides";
 import type { Proyecto } from "../types/types";
 
-export const ProyectosSlider = ({ projects }: { projects: Proyecto[] }) => {
+interface Props {
+  projects: Proyecto[];
+  visitLabel: string;
+  fallbackTags: string[];
+}
+
+export const ProyectosSlider = ({
+  projects,
+  visitLabel,
+  fallbackTags,
+}: Props) => {
   const dragStartX = useRef(0);
   const dragCurrentX = useRef(0);
   const isPointerDown = useRef(false);
@@ -23,7 +33,7 @@ export const ProyectosSlider = ({ projects }: { projects: Proyecto[] }) => {
   });
 
   const current = projects[currentIndex];
-  const tags = current.tags?.length ? current.tags : ["Web", "Desarrollo"];
+  const tags = current.tags?.length ? current.tags : fallbackTags;
 
   const getSwipeThreshold = (target: EventTarget | null) => {
     const element =
@@ -115,7 +125,7 @@ export const ProyectosSlider = ({ projects }: { projects: Proyecto[] }) => {
             target="_blank"
             rel="noopener noreferrer"
             className="visit-site-button">
-            Visitar sitio
+            {visitLabel}
           </a>
         </div>
       </div>

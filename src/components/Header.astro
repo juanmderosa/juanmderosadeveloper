@@ -1,9 +1,11 @@
 ---
 import Nav from "../ui/Nav.astro";
+
+const { t } = Astro.props;
 ---
 
 <header>
-  <Nav />
+  <Nav t={t} />
 </header>
 
 <style>

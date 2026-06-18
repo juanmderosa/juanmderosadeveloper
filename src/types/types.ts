@@ -20,15 +20,6 @@ interface ProyectoImage {
   format: string;
 }
 
-interface ProyectoData {
-  id: string;
-  title: string;
-  image: ProyectoImage;
-  description: string;
-  livesite: string;
-  tags?: string[];
-}
-
 export type Proyecto = {
   id: string;
   title: string;

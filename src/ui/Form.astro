@@ -1,16 +1,20 @@
 ---
 import { actions } from "astro:actions";
+
+const { t } = Astro.props;
 ---
 
 <form
   id="contactame"
   method="POST"
+  data-submit-label={t.contact.form.submit}
+  data-sending-label={t.contact.form.sending}
   action={actions.sendEmail}>
   <div class="input-container">
     <label
       for="nombre"
       class="label"
-      >Nombre</label
+      >{t.contact.form.name}</label
     >
     <input
       type="text"
@@ -29,7 +33,7 @@ import { actions } from "astro:actions";
     <label
       for="email"
       class="label"
-      >Correo electrónico</label
+      >{t.contact.form.email}</label
     >
     <input
       type="email"
@@ -48,7 +52,7 @@ import { actions } from "astro:actions";
     <label
       for="telefono"
       class="label"
-      >Teléfono</label
+      >{t.contact.form.phone}</label
     >
     <input
       type="text"
@@ -67,7 +71,7 @@ import { actions } from "astro:actions";
     <label
       for="mensaje"
       class="label"
-      >Mensaje</label
+      >{t.contact.form.message}</label
     >
     <textarea
       name="mensaje"
@@ -86,20 +90,20 @@ import { actions } from "astro:actions";
     id="submitBtn"
     class="button"
     disabled>
-    Enviar
+    {t.contact.form.submit}
   </button>
 </form>
 
 <p
   class="text-error"
   style="display:none;">
-  No ha sido posible enviar el formulario. Por favor vuelve a intentarlo.
+  {t.contact.form.error}
 </p>
 
 <p
   class="text-confirmation"
   style="display:none;">
-  ¡Gracias por escribirme! Pronto te estaré respondiendo.
+  {t.contact.form.success}
 </p>
 
 <style>
@@ -240,7 +244,7 @@ import { actions } from "astro:actions";
       const formData = new FormData(form);
 
       submitBtn.disabled = true;
-      submitBtn.textContent = "Enviando...";
+      submitBtn.textContent = form.dataset.sendingLabel ?? "Enviando...";
 
       try {
         const token = await grecaptcha.execute(
@@ -274,7 +278,7 @@ import { actions } from "astro:actions";
         errorMessage.style.display = "block";
       } finally {
         submitBtn.disabled = false;
-        submitBtn.textContent = "Enviar";
+        submitBtn.textContent = form.dataset.submitLabel ?? "Send";
       }
     });
 

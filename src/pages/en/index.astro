@@ -1,0 +1,38 @@
+---
+import Contacto from "../../components/Contacto.astro";
+import Experiencia from "../../components/Experiencia.astro";
+import Hero from "../../components/Hero.astro";
+import Opiniones from "../../components/Opiniones.astro";
+import Proyectos from "../../components/Proyectos.astro";
+import SobreMi from "../../components/SobreMi.astro";
+import Stack from "../../components/Stack.astro";
+import Layout from "../../layouts/Layout.astro";
+import { getCopy } from "../../i18n";
+
+const t = getCopy("en");
+---
+
+<Layout
+  title={t.meta.title}
+  description={t.meta.description}
+  locale={t.locale}
+  alternatePath={t.alternatePath}
+  canonicalPath="/en/"
+  t={t}>
+  <main class="main-container">
+    <Hero t={t} />
+    <SobreMi t={t} />
+    <Stack t={t} />
+    <Experiencia t={t} />
+    <Proyectos t={t} />
+    <Opiniones t={t} />
+    <Contacto t={t} />
+  </main>
+</Layout>
+
+<style>
+  .main-container {
+    flex-grow: 1;
+    width: 100%;
+  }
+</style>
