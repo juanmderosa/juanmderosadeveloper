@@ -1,6 +1,6 @@
 import "../styles/slider.css";
 import "../styles/slidernav.css";
-import { useRef, useState, type MouseEvent, type PointerEvent } from "react";
+import { useRef, useState, type PointerEvent } from "react";
 import { useSlides } from "../hooks/useSlides";
 import type { Proyecto } from "../types/types";
 
@@ -33,8 +33,12 @@ export const ProyectosSlider = ({ projects }: { projects: Proyecto[] }) => {
     return Math.min(50, width * 0.2);
   };
 
+  const isInteractiveTarget = (target: EventTarget | null) =>
+    target instanceof Element && Boolean(target.closest("a, button"));
+
   const handlePointerDown = (event: PointerEvent<HTMLDivElement>) => {
     if (event.button !== 0) return;
+    if (isInteractiveTarget(event.target)) return;
 
     dragStartX.current = event.clientX;
     dragCurrentX.current = event.clientX;
@@ -75,13 +79,6 @@ export const ProyectosSlider = ({ projects }: { projects: Proyecto[] }) => {
     }
   };
 
-  const handleVisitClick = (event: MouseEvent<HTMLAnchorElement>) => {
-    if (!hasDragged.current) return;
-
-    event.preventDefault();
-    hasDragged.current = false;
-  };
-
   return (
     <div className="proyectos-slider-container">
       <div
@@ -117,7 +114,6 @@ export const ProyectosSlider = ({ projects }: { projects: Proyecto[] }) => {
             href={current.livesite}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={handleVisitClick}
             className="visit-site-button">
             Visitar sitio
           </a>
