@@ -1,15 +1,31 @@
-import { useEffect, useState } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type PointerEvent,
+} from "react";
 import "../styles/opinionesSlider.css";
 import "../styles/slidernav.css";
 import { useSlides } from "../hooks/useSlides";
 import type { OpinionData } from "../types/types";
 
 export const OpinionSlider = ({ opinions }: { opinions: OpinionData[] }) => {
+  const dragStartX = useRef(0);
+  const dragCurrentX = useRef(0);
+  const isPointerDown = useRef(false);
+  const hasNavigated = useRef(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  const { currentIndex, totalSlides, goToNextSlide, goToSlide } = useSlides({
+  const {
+    currentIndex,
+    totalSlides,
+    goToNextSlide,
+    goToPreviousSlide,
+    goToSlide,
+  } = useSlides({
     slides: opinions,
   });
 
@@ -29,6 +45,61 @@ export const OpinionSlider = ({ opinions }: { opinions: OpinionData[] }) => {
       ? [opinions[currentIndex]]
       : [opinions[currentIndex], opinions[(currentIndex + 1) % totalSlides]];
 
+  const getInitial = (name: string) => {
+    const trimmedName = name.trim();
+    return Array.from(trimmedName)[0]?.toUpperCase() ?? "?";
+  };
+
+  const getSwipeThreshold = (target: EventTarget | null) => {
+    const element =
+      target instanceof Element ? target.closest(".opiniones-slider") : null;
+    const width = element?.getBoundingClientRect().width ?? 250;
+
+    return Math.min(50, width * 0.2);
+  };
+
+  const handlePointerDown = (event: PointerEvent<HTMLDivElement>) => {
+    if (event.button !== 0) return;
+
+    dragStartX.current = event.clientX;
+    dragCurrentX.current = event.clientX;
+    hasNavigated.current = false;
+    isPointerDown.current = true;
+    setIsDragging(true);
+    setIsHovered(true);
+    event.currentTarget.setPointerCapture(event.pointerId);
+  };
+
+  const handlePointerMove = (event: PointerEvent<HTMLDivElement>) => {
+    if (!isPointerDown.current || hasNavigated.current) return;
+
+    dragCurrentX.current = event.clientX;
+    const deltaX = dragCurrentX.current - dragStartX.current;
+    const threshold = getSwipeThreshold(event.currentTarget);
+
+    if (Math.abs(deltaX) < threshold) return;
+
+    hasNavigated.current = true;
+
+    if (deltaX < 0) {
+      goToNextSlide();
+    } else {
+      goToPreviousSlide();
+    }
+  };
+
+  const handlePointerEnd = (event: PointerEvent<HTMLDivElement>) => {
+    if (!isPointerDown.current) return;
+
+    isPointerDown.current = false;
+    setIsDragging(false);
+    setIsHovered(false);
+
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+  };
+
   useEffect(() => {
     if (!isHovered) {
       const intervalId = setInterval(goToNextSlide, 5000) as NodeJS.Timeout;
@@ -38,22 +109,33 @@ export const OpinionSlider = ({ opinions }: { opinions: OpinionData[] }) => {
   }, [isHovered, currentIndex]);
 
   return (
-    <div className="opiniones-slider-container">
-      <div className="opiniones-slider">
+    <div
+      className={
+        isDragging
+          ? "opiniones-slider-container opiniones-slider-container-dragging"
+          : "opiniones-slider-container"
+      }>
+      <div
+        className="opiniones-slider"
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerEnd}
+        onPointerCancel={handlePointerEnd}
+        onPointerLeave={handlePointerEnd}>
         <div className="opiniones-container">
           {visibleSlides.map((opinion) => (
             <aside
-              key={opinion.data.company}
+              key={`${opinion.id}-${opinion.data.name}`}
               className="opinion-container"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}>
               <p className="opinion-opinion">"{opinion.data.opinion}"</p>
               <div className="opinion-person">
                 <span className="opinion-avatar">
-                  {opinion.data.name.charAt(0)}
+                  {getInitial(opinion.data.name)}
                 </span>
                 <div>
-                  <h4 className="opinion-name">{opinion.data.name}</h4>
+                  <h4 className="opinion-name">{opinion.data.name.trim()}</h4>
                   <h5 className="opinion-empresa">{opinion.data.company}</h5>
                 </div>
               </div>
