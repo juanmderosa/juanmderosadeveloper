@@ -15,6 +15,7 @@ export const ProyectosSlider = ({ projects }: { projects: Proyecto[] }) => {
   });
 
   const current = projects[currentIndex];
+  const tags = current.tags?.length ? current.tags : ["Web", "Desarrollo"];
 
   return (
     <div className="proyectos-slider-container">
@@ -28,6 +29,13 @@ export const ProyectosSlider = ({ projects }: { projects: Proyecto[] }) => {
         </div>
 
         <div className="slider-description-container">
+          <div className="project-tags">
+            {tags.map((tag) => (
+              <span className="chip" key={tag}>
+                {tag}
+              </span>
+            ))}
+          </div>
           <h3>{current.title}</h3>
           <p className="project-description">{current.description}</p>
           <a

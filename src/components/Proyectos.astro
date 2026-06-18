@@ -8,7 +8,10 @@ const projects = (await getCollection("projects")).map((p) => p.data);
 <section
   class="container"
   id="proyectos">
-  <h2 class="proyectos-main-title">Proyectos</h2>
+  <div class="projects-heading">
+    <p class="section-kicker">Portfolio</p>
+    <h2 class="proyectos-main-title">Proyectos destacados</h2>
+  </div>
   <ProyectosSlider
     client:only="react"
     projects={projects}
@@ -19,8 +22,14 @@ const projects = (await getCollection("projects")).map((p) => p.data);
   #proyectos {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
+  }
+
+  .projects-heading {
     margin-bottom: 2rem;
+  }
+
+  .proyectos-main-title {
+    margin-bottom: 0;
   }
 </style>

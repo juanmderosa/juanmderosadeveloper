@@ -26,6 +26,7 @@ interface ProyectoData {
   image: ProyectoImage;
   description: string;
   livesite: string;
+  tags?: string[];
 }
 
 export type Proyecto = {
@@ -39,4 +40,5 @@ export type Proyecto = {
   };
   description: string;
   livesite: string;
+  tags?: string[];
 };

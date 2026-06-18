@@ -1,0 +1,122 @@
+---
+const services = [
+  {
+    icon: "</>",
+    title: "Desarrollo Web",
+    description:
+      "Desarrollo sitios web a medida, landing pages y experiencias optimizadas para conversión y rendimiento.",
+  },
+  {
+    icon: "{}",
+    title: "Automatizaciones",
+    description:
+      "Conecto herramientas, APIs y flujos de trabajo para reducir tareas manuales repetitivas.",
+  },
+  {
+    icon: "FS",
+    title: "Desarrollo Fullstack",
+    description:
+      "Implemento interfaces, lógica de backend e integraciones dentro del ecosistema JavaScript.",
+  },
+  {
+    icon: "AI",
+    title: "Agentes AI & Chatbots",
+    description:
+      "Integro asistentes conversacionales y herramientas de IA para mejorar atención y operación.",
+  },
+  {
+    icon: "API",
+    title: "Integración de APIs",
+    description:
+      "Conecto sistemas externos con plataformas existentes para sincronizar datos y procesos.",
+  },
+  {
+    icon: "OPS",
+    title: "Mantenimiento",
+    description:
+      "Soporte técnico, mejoras progresivas, configuración de hosting, dominios y optimización continua.",
+  },
+];
+---
+
+<section class="container services-container" id="experiencia">
+  <div class="section-heading">
+    <p class="section-kicker">Servicios</p>
+    <h2>Experiencia & Servicios</h2>
+  </div>
+
+  <div class="services-grid">
+    {
+      services.map((service) => (
+        <article class="service-card glass-card">
+          <span class="service-icon">{service.icon}</span>
+          <h3>{service.title}</h3>
+          <p>{service.description}</p>
+        </article>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .services-container {
+    padding-top: 5rem;
+  }
+
+  .section-heading {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .section-heading h2 {
+    margin-bottom: 0;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .service-card {
+    min-height: 13rem;
+    padding: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .service-icon {
+    min-width: 2.4rem;
+    height: 2.4rem;
+    display: inline-grid;
+    place-items: center;
+    border-radius: var(--radius);
+    background: rgba(109, 84, 207, 0.16);
+    color: var(--primary);
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 700;
+    font-size: 0.72rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.05rem;
+  }
+
+  .service-card p {
+    font-size: 0.95rem;
+  }
+
+  @media screen and (max-width: 900px) {
+    .services-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (max-width: 620px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

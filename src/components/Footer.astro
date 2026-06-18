@@ -3,14 +3,65 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="footer">
-  <p>Juan Martín De Rosa - © {year}</p>
+  <div class="footer-inner">
+    <p>JuanmderosaDeveloper</p>
+    <nav aria-label="Enlaces de pie">
+      <a
+        href="https://www.linkedin.com/in/juanmderosa/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >LinkedIn</a
+      >
+      <a
+        href="https://github.com/juanmderosa"
+        target="_blank"
+        rel="noopener noreferrer"
+        >GitHub</a
+      >
+      <a href="#contactame">Contact</a>
+    </nav>
+    <p>© {year} Juan Martín De Rosa. Todos los derechos reservados.</p>
+  </div>
 </footer>
 
 <style>
   .footer {
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .footer-inner {
+    width: min(calc(100% - 2rem), var(--container-max-width));
+    min-height: 5rem;
+    margin-inline: auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    height: 5rem;
+    gap: 1rem;
+  }
+
+  .footer p,
+  .footer a {
+    color: var(--on-surface-variant);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+  }
+
+  .footer nav {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .footer a:hover {
+    color: var(--primary);
+  }
+
+  @media screen and (max-width: 760px) {
+    .footer-inner {
+      flex-direction: column;
+      justify-content: center;
+      padding-block: 1.5rem;
+      text-align: center;
+    }
   }
 </style>

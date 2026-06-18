@@ -104,7 +104,7 @@ import { actions } from "astro:actions";
 
 <style>
   #contactame {
-    padding: 2rem 4rem;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -119,32 +119,44 @@ import { actions } from "astro:actions";
 
   .label {
     margin-bottom: 0.3rem;
-    text-transform: uppercase;
+    color: var(--on-surface);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.74rem;
+    font-weight: 500;
   }
 
   .input-field,
   .textarea-field {
-    background-color: var(--silver);
-    border: none;
+    background-color: rgba(15, 14, 23, 0.58);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     padding-inline: 1rem;
-    padding-block: 0.5rem;
+    padding-block: 0.75rem;
     outline: none;
-    border-radius: 1rem;
+    border-radius: var(--radius);
     width: 100%;
+    color: var(--on-surface);
+    transition:
+      border-color 300ms ease,
+      box-shadow 300ms ease;
   }
 
   .input-field {
-    height: 2rem;
-    color: var(--raisin-black);
+    height: 2.7rem;
     font-weight: 500;
   }
   .textarea-field {
-    height: 4rem;
+    height: 7rem;
     resize: none;
   }
 
+  .input-field:focus,
+  .textarea-field:focus {
+    border-color: var(--primary-container);
+    box-shadow: 0 0 0 3px rgba(109, 84, 207, 0.18);
+  }
+
   .text-error {
-    color: var(--non-photo-blue);
+    color: var(--error);
     padding-inline: 1rem;
     margin-top: 0.2rem;
     text-align: center;
@@ -152,7 +164,7 @@ import { actions } from "astro:actions";
   }
 
   .input-text-error {
-    color: var(--non-photo-blue);
+    color: var(--error);
     padding-inline: 1rem;
     margin-top: 0.2rem;
     font-size: 0.7rem;
@@ -162,7 +174,7 @@ import { actions } from "astro:actions";
     padding-inline: 1rem;
     margin-top: 0.2rem;
     text-align: center;
-    color: var(--non-photo-blue);
+    color: var(--primary);
     display: none;
   }
 
@@ -174,7 +186,6 @@ import { actions } from "astro:actions";
   @media screen and (max-width: 768px) {
     #contactame {
       padding: 1rem;
-      margin-bottom: 2rem;
     }
   }
 </style>
