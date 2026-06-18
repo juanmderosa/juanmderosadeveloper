@@ -1,5 +1,7 @@
 ---
 import HeroShapes from "../ui/HeroShapes.astro";
+
+const { t } = Astro.props;
 ---
 
 <section
@@ -8,34 +10,28 @@ import HeroShapes from "../ui/HeroShapes.astro";
   <article class="hero-copy">
     <div class="availability-badge">
       <span class="status-dot"></span>
-      Disponible para nuevos proyectos
+      {t.hero.badge}
     </div>
 
     <h1>
-      Hola, soy
-      <span>JUAN MARTÍN DE ROSA</span>
+      {t.hero.eyebrow}
+      <span>{t.hero.name}</span>
     </h1>
 
-    <strong>Desarrollador Web Full Stack & Automatización</strong>
+    <strong>{t.hero.role}</strong>
 
-    <p>
-      Desarrollo sitios web y aplicaciones modernas. Especializado en crear
-      experiencias digitales de alto rendimiento y automatizar flujos de trabajo
-      complejos. Especializado en Frontend con React, y Astro. Desarrollo
-      aplicaciones web, APIs, integraciones y automatizaciones con Node.js y
-      n8n.
-    </p>
+    <p>{t.hero.description}</p>
 
     <div class="hero-actions">
       <a
         class="button"
         href="#proyectos"
-        >Ver proyectos</a
+        >{t.hero.primaryCta}</a
       >
       <a
         class="button button-secondary"
         href="#sobremi"
-        >Sobre mi</a
+        >{t.hero.secondaryCta}</a
       >
     </div>
   </article>

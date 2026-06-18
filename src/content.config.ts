@@ -8,11 +8,11 @@ const projects = defineCollection({
     z.object({
       id: z.string(),
       title: z.string(),
-        image: image(),
-        description: z.string(),
-        livesite: z.string(),
-        tags: z.array(z.string()).optional(),
-      }),
+      image: image(),
+      description: z.string(),
+      livesite: z.string(),
+      tags: z.array(z.string()).optional(),
+    }),
 });
 
 const opinions = defineCollection({

@@ -3,15 +3,24 @@ import { OpinionSlider } from "../ui/OpinionesSlider";
 import { getCollection } from "astro:content";
 import type { OpinionData } from "../types/types";
 
-const opinions: OpinionData[] = await getCollection("opinions");
+const { t } = Astro.props;
+const opinions: OpinionData[] = (await getCollection("opinions")).map(
+  (opinion) => ({
+    ...opinion,
+    data: {
+      ...opinion.data,
+      opinion: t.opinions.items[opinion.id]?.opinion ?? opinion.data.opinion,
+    },
+  }),
+);
 ---
 
 <section
   id="opiniones"
   class="container">
   <div class="opinions-heading">
-    <p class="section-kicker">Testimonios</p>
-    <h2>Opiniones</h2>
+    <p class="section-kicker">{t.opinions.kicker}</p>
+    <h2>{t.opinions.title}</h2>
   </div>
   <OpinionSlider
     client:only="react"

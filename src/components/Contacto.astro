@@ -6,18 +6,17 @@ import WaIcon from "../assets/logos/whatsapp.png";
 import EmailIcon from "../assets/logos/email.png";
 import Form from "../ui/Form.astro";
 import { Image } from "astro:assets";
+
+const { t } = Astro.props;
 ---
 
 <section
   class="container contacto-container"
   id="contactame">
   <article class="contacto-copy">
-    <p class="section-kicker">Contacto</p>
-    <h2>Trabajemos juntos</h2>
-    <p>
-      ¿Tenés un proyecto en mente o querés mejorar tus procesos actuales?
-      Escribime y charlemos sobre cómo puedo ayudarte.
-    </p>
+    <p class="section-kicker">{t.contact.kicker}</p>
+    <h2>{t.contact.title}</h2>
+    <p>{t.contact.description}</p>
 
     <div class="contacto-info-container">
       <div class="contacto-data-container">
@@ -30,7 +29,7 @@ import { Image } from "astro:assets";
           /></span
         >
         <div>
-          <p>Teléfono</p>
+          <p>{t.contact.phone}</p>
           <a
             href="https://api.whatsapp.com/send/?phone=5491154632571&text&type=phone_number&app_absent=0"
             target="_blank"
@@ -49,13 +48,13 @@ import { Image } from "astro:assets";
           /></span
         >
         <div>
-          <p>E-mail</p>
+          <p>{t.contact.email}</p>
           <a href="mailto:juanmderosa@gmail.com">juanmderosa@gmail.com</a>
         </div>
       </div>
       <div
         class="contacto-links-container"
-        aria-label="Redes sociales">
+        aria-label={t.contact.socialsAria}>
         <LinkIcon
           icon={githubIcon}
           href="https://github.com/juanmderosa"
@@ -75,7 +74,7 @@ import { Image } from "astro:assets";
   </article>
 
   <article class="contacto-form-container glass-card">
-    <Form />
+    <Form t={t} />
   </article>
 </section>
 

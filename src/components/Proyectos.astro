@@ -2,19 +2,29 @@
 import { ProyectosSlider } from "../ui/ProyectosSlider";
 import { getCollection } from "astro:content";
 
-const projects = (await getCollection("projects")).map((p) => p.data);
+const { t } = Astro.props;
+const projects = (await getCollection("projects")).map((p) => {
+  const copy = t.projects.items[p.data.id];
+  return {
+    ...p.data,
+    title: copy?.title ?? p.data.title,
+    description: copy?.description ?? p.data.description,
+  };
+});
 ---
 
 <section
   class="container"
   id="proyectos">
   <div class="projects-heading">
-    <p class="section-kicker">Portfolio</p>
-    <h2 class="proyectos-main-title">Proyectos destacados</h2>
+    <p class="section-kicker">{t.projects.kicker}</p>
+    <h2 class="proyectos-main-title">{t.projects.title}</h2>
   </div>
   <ProyectosSlider
     client:only="react"
     projects={projects}
+    visitLabel={t.projects.visit}
+    fallbackTags={t.projects.fallbackTags}
   />
 </section>
 
