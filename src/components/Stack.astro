@@ -2,6 +2,8 @@
 import { Image } from "astro:assets";
 import stackImage from "../assets/images/stackimage.jpg";
 
+const { t } = Astro.props;
+
 const technologies = [
   "HTML",
   "CSS",
@@ -20,14 +22,11 @@ const technologies = [
 
 <section class="container stack-main-container" id="stack">
   <article class="stack-copy">
-    <p class="section-kicker">Stack</p>
-    <h2>Stack</h2>
-    <p>
-      Las herramientas y tecnologías con las que construyo soluciones robustas,
-      mantenibles y listas para escalar.
-    </p>
+    <p class="section-kicker">{t.stack.kicker}</p>
+    <h2>{t.stack.title}</h2>
+    <p>{t.stack.description}</p>
 
-    <ul class="tech-grid" aria-label="Tecnologías">
+    <ul class="tech-grid" aria-label={t.stack.aria}>
       {
         technologies.map((technology) => (
           <li class="glass-card">
@@ -39,11 +38,11 @@ const technologies = [
     </ul>
   </article>
 
-  <article class="stack-image-wrap" aria-label="Código en pantalla">
+  <article class="stack-image-wrap" aria-label={t.stack.imageAlt}>
     <div class="image-shadow"></div>
     <Image
       src={stackImage}
-      alt="Laptop con código"
+      alt={t.stack.imageAlt}
       width={576}
       height={768}
       class="stack-image"

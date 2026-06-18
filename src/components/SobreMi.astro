@@ -2,6 +2,8 @@
 import { Image } from "astro:assets";
 import fotoperfil from "../assets/images/fotoperfil.png";
 import ButtonLink from "../ui/ButtonLink.astro";
+
+const { t } = Astro.props;
 ---
 
 <section
@@ -12,39 +14,24 @@ import ButtonLink from "../ui/ButtonLink.astro";
       src={fotoperfil}
       width={360}
       height={480}
-      alt="Foto perfil de Juan Martín De Rosa"
+      alt={t.about.imageAlt}
       class="about-image"
       loading="eager"
     />
     <div class="image-caption">
       <span class="caption-dot"></span>
-      <span>Disponible para proyectos</span>
+      <span>{t.about.caption}</span>
     </div>
   </article>
 
   <article class="about-copy">
-    <p class="section-kicker">Sobre mi</p>
-    <h2>JUAN MARTÍN DE ROSA</h2>
-    <h3>Desarrollador Web Full Stack & Automatización</h3>
-    <p>
-      Soy desarrollador frontend especializado en React y TypeScript, aunque en
-      los últimos proyectos fui ampliando mi perfil hacia el desarrollo full
-      stack con Node.js y distintas integraciones backend.
-    </p>
-    <p>
-      Vengo trabajando hace tiempo en el desarrollo de sitios web, landing pages
-      y aplicaciones a partir de diseños en Figma, integrando APIs y optimizando
-      rendimiento, mantenibilidad y reutilización de componentes.
-    </p>
-    <p>
-      Además, mi experiencia previa en e-commerce y marketing digital me dio una
-      mirada práctica sobre producto, conversión y comportamiento de usuarios.
-      Actualmente sigo profundizando en Node.js y arquitectura full stack dentro
-      del ecosistema JavaScript/TypeScript.
-    </p>
+    <p class="section-kicker">{t.about.kicker}</p>
+    <h2>{t.about.title}</h2>
+    <h3>{t.about.role}</h3>
+    {t.about.paragraphs.map((paragraph: string) => <p>{paragraph}</p>)}
     <ButtonLink
       href="CV - Juan Martín De Rosa.pdf"
-      text="Descargar CV"
+      text={t.about.cv}
       isDownloadable={true}
     />
   </article>

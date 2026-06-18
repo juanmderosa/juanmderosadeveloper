@@ -3,15 +3,24 @@ import Footer from "../components/Footer.astro";
 import Head from "../components/Head.astro";
 import Header from "../components/Header.astro";
 import WhatsappButton from "../ui/WhatsappButton.astro";
+
+const { title, description, locale, alternatePath, canonicalPath, t } =
+  Astro.props;
 ---
 
 <!doctype html>
-<html lang="es">
-  <Head title="Juanmderosa Developer" />
+<html lang={locale}>
+  <Head
+    title={title}
+    description={description}
+    locale={locale}
+    alternatePath={alternatePath}
+    canonicalPath={canonicalPath}
+  />
   <body>
-    <Header />
+    <Header t={t} />
     <slot />
-    <Footer />
+    <Footer t={t} />
     <WhatsappButton />
   </body>
 </html>
