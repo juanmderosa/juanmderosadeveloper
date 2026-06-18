@@ -4,10 +4,21 @@
   padding-bottom: 2.5rem;
 }
 
+.opiniones-slider-container-dragging {
+  cursor: grabbing;
+}
+
 .opiniones-slider {
   width: 100%;
   height: auto;
   overflow: hidden;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.opiniones-slider-container-dragging .opiniones-slider {
+  cursor: grabbing;
 }
 
 .opiniones-container {
@@ -53,6 +64,7 @@
 .opinion-avatar {
   width: 2.25rem;
   aspect-ratio: 1;
+  flex: 0 0 2.25rem;
   display: grid;
   place-items: center;
   border-radius: 999px;
