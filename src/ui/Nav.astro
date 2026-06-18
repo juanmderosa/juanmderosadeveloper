@@ -31,7 +31,7 @@
     <a href="#proyectos">Projectos</a>
     <a
       href="#contactame"
-      id="contactame"
+      id="contactameNav"
       >Contacto</a
     >
   </div>
@@ -45,6 +45,7 @@
 
 <style>
   .site-nav {
+    position: relative;
     width: min(calc(100% - 2rem), var(--container-max-width));
     margin: 0 auto;
     min-height: 4rem;
@@ -88,7 +89,7 @@
     white-space: nowrap;
   }
 
-  #contactame {
+  #contactameNav {
     display: none;
   }
   .nav-toggle,
@@ -128,19 +129,25 @@
       display: none;
     }
 
-    #contactame {
+    #contactameNav {
       display: block;
     }
 
     .nav-toggle:checked ~ .nav-links {
-      grid-column: 1 / -1;
+      position: absolute;
+      top: calc(100% + 0.5rem);
+      left: 0;
+      right: 0;
+      z-index: 1000;
       display: grid;
       gap: 0.25rem;
       justify-items: stretch;
       padding: 0.75rem;
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: var(--radius-md);
-      background: rgba(18, 20, 20, 0.96);
+      background: rgba(18, 20, 20);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.34);
+      backdrop-filter: blur(18px);
     }
 
     .nav-toggle:checked ~ .nav-links a {
@@ -153,3 +160,24 @@
     }
   }
 </style>
+
+<script>
+  const siteNav = document.querySelector(".site-nav");
+  const navToggle = document.getElementById("mobile-nav") as HTMLInputElement | null;
+  const navLinks = document.querySelectorAll(".nav-links a");
+
+  function closeMobileNav() {
+    if (navToggle) navToggle.checked = false;
+  }
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", closeMobileNav);
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!navToggle?.checked) return;
+    if (siteNav?.contains(event.target as Node)) return;
+
+    closeMobileNav();
+  });
+</script>
