@@ -1,168 +1,140 @@
 ---
 import { Image } from "astro:assets";
 import stackImage from "../assets/images/stackimage.jpg";
-import BigCircle from "../ui/BigCircle.astro";
 
 const technologies = [
   "HTML",
   "CSS",
-  "Javascript",
-  "Typescript",
+  "JavaScript",
+  "TypeScript",
   "React",
-  "Astro Js",
-  "Next Js",
-  "Node JS",
-  "Git / Github",
-  "Bootstrap",
+  "Astro",
+  "Next.js",
+  "Node.js",
+  "Git",
   "Tailwind",
-  "SASS",
-  "Wordpress",
-  "Woocommerce",
+  "WordPress",
   "n8n",
-  "Herraminetas de inteligencia artificial",
-];
-
-const experiencias = [
-  "Desarrollo Web",
-  "Desarrollo de automatizaciones",
-  "Desarrollo Fullstack",
-  "Integración de Apis",
-  "Agentes conversacionales y Chatbots",
-  "Landing Pages",
-  "E-commerce",
-  "Diseño Responsive",
-  "Configuración de Hosting y Dominios",
-  "Mantenimiento de Sitios Web",
 ];
 ---
 
-<section class="container stack-main-container">
-  <article class="stack-container">
-    <h3>Stack</h3>
-    <ul>
-      {technologies.map((technology) => <li>{technology}</li>)}
+<section class="container stack-main-container" id="stack">
+  <article class="stack-copy">
+    <p class="section-kicker">Stack</p>
+    <h2>Stack</h2>
+    <p>
+      Las herramientas y tecnologías con las que construyo soluciones robustas,
+      mantenibles y listas para escalar.
+    </p>
+
+    <ul class="tech-grid" aria-label="Tecnologías">
+      {
+        technologies.map((technology) => (
+          <li class="glass-card">
+            <span class="tech-icon">{technology.slice(0, 2).toUpperCase()}</span>
+            <span class="tech-label">{technology}</span>
+          </li>
+        ))
+      }
     </ul>
   </article>
-  <article class="experience-container">
-    <h3>Experiencia</h3>
-    <ul>
-      {experiencias.map((experiencia) => <li>{experiencia}</li>)}
-    </ul>
-  </article>
-  <article class="stack-image-container">
+
+  <article class="stack-image-wrap" aria-label="Código en pantalla">
+    <div class="image-shadow"></div>
     <Image
       src={stackImage}
-      alt="Stack Image"
-      width={324}
-      height={576}
+      alt="Laptop con código"
+      width={576}
+      height={768}
       class="stack-image"
     />
   </article>
-  <BigCircle
-    width="300px"
-    top="55%"
-    left="35%"
-    background="repeating-linear-gradient(-45deg, var(--silver), var(--silver) 10px, transparent 10px, transparent 20px)"
-    zindex="-0"
-  />
-  <BigCircle
-    width="300px"
-    top="60%"
-    left="40%"
-    background="var(--purple)"
-    zindex="-1"
-  />
 </section>
 
 <style>
   .stack-main-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-items: start;
-    width: 100%;
-    position: relative;
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.9fr);
+    align-items: center;
+    gap: 4rem;
   }
 
-  h3 {
-    text-align: left;
+  .stack-copy h2 {
+    margin-bottom: 1rem;
   }
 
-  ul {
+  .stack-copy p:not(.section-kicker) {
+    max-width: 38rem;
+  }
+
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.8rem;
     margin-top: 2rem;
   }
 
-  li {
-    list-style-position: inside;
-    margin-bottom: 0.5rem;
+  .tech-grid li {
+    min-height: 5.5rem;
+    list-style: none;
+    display: grid;
+    place-items: center;
+    gap: 0.45rem;
+    padding: 1rem 0.7rem;
+    text-align: center;
   }
 
-  .stack-container {
-    grid-column: 1/2;
-  }
-  .experience-container {
-    grid-column: 2/3;
+  .tech-icon {
+    width: 2.1rem;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    border-radius: var(--radius);
+    background: rgba(109, 84, 207, 0.16);
+    color: var(--primary);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.62rem;
+    font-weight: 700;
   }
 
-  .stack-image-container {
-    grid-column: 3/4;
-    height: 100%;
-    width: 100%;
-    border-radius: 18px;
+  .tech-label {
+    color: var(--on-surface);
+    font-size: 0.72rem;
+  }
+
+  .stack-image-wrap {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .image-shadow {
+    position: absolute;
+    inset: 1.5rem -1rem -1rem 1.5rem;
+    border: 1px solid rgba(203, 190, 255, 0.22);
+    border-radius: var(--radius-lg);
+    background: rgba(109, 84, 207, 0.16);
+    z-index: -1;
   }
 
   .stack-image {
+    width: 100%;
+    max-height: 32rem;
     object-fit: cover;
-    border-radius: 18px;
-    box-shadow:
-      1px 1px 5px var(--french-gray),
-      -1px -1px 5px var(--french-gray);
-    position: relative;
-    z-index: 10;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    filter: saturate(0.85) contrast(1.05);
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 980px) {
     .stack-main-container {
-      display: block;
-      width: 100%;
-      position: relative;
+      grid-template-columns: 1fr;
+      gap: 2rem;
     }
+  }
 
-    h3 {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-
-    ul {
-      margin-top: 0;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    li {
-      margin-bottom: 0rem;
-    }
-
-    .stack-container {
-      width: 100%;
-    }
-    .experience-container > ul,
-    .stack-container > ul {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .experience-container {
-      width: 100%;
-    }
-
-    .stack-image-container {
-      width: 100%;
-      height: 100%;
-      margin-top: 2rem;
-      display: flex;
-      justify-content: center;
+  @media screen and (max-width: 620px) {
+    .tech-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 </style>

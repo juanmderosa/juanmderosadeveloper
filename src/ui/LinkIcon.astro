@@ -5,6 +5,7 @@ const { icon, href, width, height, alt } = Astro.props;
 ---
 
 <a
+  class="link-icon"
   href={href}
   target="_blank"
   rel="noopener noreferrer">
@@ -15,3 +16,25 @@ const { icon, href, width, height, alt } = Astro.props;
     height={height}
   />
 </a>
+
+<style>
+  .link-icon {
+    width: 2.6rem;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.04);
+    transition:
+      transform 300ms ease,
+      border-color 300ms ease,
+      background-color 300ms ease;
+  }
+
+  .link-icon:hover {
+    transform: translateY(-2px);
+    border-color: rgba(203, 190, 255, 0.45);
+    background: rgba(109, 84, 207, 0.18);
+  }
+</style>

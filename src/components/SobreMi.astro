@@ -5,52 +5,42 @@ import ButtonLink from "../ui/ButtonLink.astro";
 ---
 
 <section
-  class="container sobre-mi-container"
+  class="container about-container"
   id="sobremi">
-  <article class="sobre-mi-title-image-container">
-    <h2>Sobre Mi</h2>
+  <article class="about-image-card glass-card">
     <Image
       src={fotoperfil}
-      width={300}
-      height={400}
+      width={360}
+      height={480}
       alt="Foto perfil de Juan Martín De Rosa"
-      class="sobre-mi-image"
+      class="about-image"
       loading="eager"
     />
+    <div class="image-caption">
+      <span class="caption-dot"></span>
+      <span>Disponible para proyectos</span>
+    </div>
   </article>
-  <article class="sobre-mi-text-container">
-    <h3 class="sobre-mi-subtitle">Web & Automation Developer</h3>
+
+  <article class="about-copy">
+    <p class="section-kicker">About</p>
+    <h2>Sobre Mi</h2>
+    <h3>Desarrollador Web Full Stack & Automatización</h3>
     <p>
       Soy desarrollador frontend especializado en React y TypeScript, aunque en
       los últimos proyectos fui ampliando mi perfil hacia el desarrollo full
-      stack con Node.js y distintas integraciones backend. Me interesa
-      especialmente construir aplicaciones que no solo funcionen bien
-      técnicamente, sino que también tengan impacto real en la experiencia de
-      usuario y en el negocio.
+      stack con Node.js y distintas integraciones backend.
     </p>
     <p>
       Vengo trabajando hace tiempo en el desarrollo de sitios web, landing pages
       y aplicaciones a partir de diseños en Figma, integrando APIs y optimizando
-      rendimiento, mantenibilidad y reutilización de componentes. Gran parte de
-      mi experiencia estuvo enfocada en frontend, pero también participé en
-      lógica de backend, automatizaciones y conexión entre servicios.
+      rendimiento, mantenibilidad y reutilización de componentes.
     </p>
     <p>
       Además, mi experiencia previa en e-commerce y marketing digital me dio una
-      mirada bastante práctica sobre producto, conversión y comportamiento de
-      usuarios, algo que hoy intento aplicar en cada proyecto en el que trabajo.
-    </p>
-    <p>
-      Trabajé tanto de forma freelance como en entornos de agencia, manejando
-      varios proyectos en simultáneo y adaptándome rápido a distintos equipos,
-      tecnologías y formas de trabajo.
-    </p>
-    <p>
-      Actualmente sigo profundizando mis conocimientos en Node.js y arquitectura
-      full stack dentro del ecosistema JavaScript/TypeScript, mientras continúo
-      enfocado principalmente en el desarrollo frontend. Me gusta aprender
-      herramientas nuevas, mejorar la calidad del código y encontrar formas más
-      eficientes de resolver problemas.
+      mirada práctica sobre producto, conversión y comportamiento de usuarios.
+      Actualmente sigo profundizando en Node.js y arquitectura full stack dentro
+      del ecosistema JavaScript/TypeScript.
     </p>
     <ButtonLink
       href="CV - Juan Martín De Rosa.pdf"
@@ -61,79 +51,93 @@ import ButtonLink from "../ui/ButtonLink.astro";
 </section>
 
 <style>
-  .sobre-mi-container {
-    display: flex;
-    width: 100%;
-    position: relative;
+  .about-container {
+    display: grid;
+    grid-template-columns: minmax(18rem, 0.85fr) minmax(0, 1.15fr);
+    align-items: center;
+    gap: 4rem;
   }
 
-  .sobre-mi-title-image-container {
-    width: 50%;
+  .about-image-card {
+    min-height: 31rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    overflow: hidden;
+    background:
+      radial-gradient(
+        circle at 50% 35%,
+        rgba(109, 84, 207, 0.55),
+        transparent 48%
+      ),
+      linear-gradient(180deg, rgba(203, 190, 255, 0.08), rgba(38, 37, 51, 0.62));
   }
-  .sobre-mi-text-container {
-    width: 50%;
+
+  .about-image {
+    width: min(82%, 24rem);
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(1) contrast(1.08);
+  }
+
+  .image-caption {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 0.75rem;
+    border-radius: var(--radius);
+    background: rgba(15, 14, 23, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+  }
+
+  .image-caption span {
+    font-size: 0.72rem;
+    color: var(--on-surface);
+  }
+
+  .caption-dot {
+    width: 0.45rem;
+    aspect-ratio: 1;
+    border-radius: 999px;
+    background: var(--primary);
+  }
+
+  .about-copy {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
+    align-items: flex-start;
+    gap: 1rem;
   }
 
-  .sobre-mi-subtitle {
-    font-family: "Montserrat", sans-serif;
-    font-size: clamp(2rem, 6vw, 3rem);
-    color: var(--ghost-white);
-    font-weight: 400;
-    text-align: center;
+  .about-copy h2 {
+    margin-bottom: 0;
   }
 
-  .sobre-mi-image {
-    width: 400px;
-    height: 400px;
-    background-color: var(--purple);
-    border-radius: 100%;
-    aspect-ratio: 1/1 !important;
-    object-fit: contain;
+  .about-copy h3 {
+    color: var(--primary);
+    font-size: 1rem;
+    font-family: "JetBrains Mono", monospace;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
   }
 
-  @media screen and (max-width: 1024px) {
-    .sobre-mi-image {
-      width: 300px;
-      height: 300px;
-    }
+  .about-copy .button {
+    margin-top: 1rem;
   }
 
-  @media screen and (max-width: 768px) {
-    .sobre-mi-container {
-      flex-direction: column;
-      gap: 4rem;
-    }
-
-    .sobre-mi-title-image-container {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+  @media screen and (max-width: 900px) {
+    .about-container {
+      grid-template-columns: 1fr;
       gap: 2rem;
     }
-    .sobre-mi-text-container {
-      width: 100%;
-      text-align: center;
-    }
 
-    .sobre-mi-subtitle {
-      font-family: "Montserrat", sans-serif;
-      font-size: clamp(2rem, 6vw, 3rem);
-      color: var(--ghost-white);
-      font-weight: 400;
-      text-align: center;
-    }
-
-    .sobre-mi-image {
-      margin-left: 0;
-      aspect-ratio: 1/1 !important;
+    .about-image-card {
+      min-height: 25rem;
     }
   }
 </style>

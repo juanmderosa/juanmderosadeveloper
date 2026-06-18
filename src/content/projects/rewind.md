@@ -4,4 +4,5 @@ title: "Rewind"
 image: "../../assets/projects/rewind.png"
 description: "Sitio web con E-commerce para Rewind, empresa dedicada a la venta de albumes y stickers con distintos diseños, tanto físicos como digitales. Realizado con Wordpress y Woocommerce."
 livesite: "https://rewind.com.ar/"
+tags: ["WordPress", "WooCommerce"]
 ---

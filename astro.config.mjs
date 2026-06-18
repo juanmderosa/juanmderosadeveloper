@@ -8,6 +8,9 @@ import playformCompress from "@playform/compress";
 // https://astro.build/config
 export default defineConfig({
   site: "https://juanmderosa-developer.com",
+  devToolbar: {
+    enabled: true,
+  },
   integrations: [react(), sitemap(), playformCompress()],
   output: "server",
   adapter: vercel({
