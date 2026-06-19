@@ -30,7 +30,9 @@ const { t } = Astro.props;
     <h3>{t.about.role}</h3>
     {t.about.paragraphs.map((paragraph: string) => <p>{paragraph}</p>)}
     <ButtonLink
-      href="CV - Juan Martín De Rosa.pdf"
+      href={t.lang === "es"
+        ? "/CV%20-%20Juan%20Mart%C3%ADn%20De%20Rosa.pdf"
+        : "/CV%20-%20Juan%20Mart%C3%ADn%20De%20Rosa%20-%20English.pdf"}
       text={t.about.cv}
       isDownloadable={true}
     />

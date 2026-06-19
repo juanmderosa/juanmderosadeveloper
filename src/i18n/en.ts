@@ -39,9 +39,9 @@ export const en: SiteCopy = {
     title: "JUAN MARTÍN DE ROSA",
     role: "Full Stack Web Developer & Automation Specialist",
     paragraphs: [
-      "I am a frontend developer specialized in React and TypeScript, and in recent projects I have expanded my profile toward full stack development with Node.js and backend integrations.",
-      "I have been building websites, landing pages, and applications from Figma designs, integrating APIs and optimizing performance, maintainability, and component reuse.",
-      "My previous experience in e-commerce and digital marketing gave me a practical perspective on product, conversion, and user behavior. I am currently deepening my knowledge of Node.js and full stack architecture within the JavaScript/TypeScript ecosystem.",
+      "I'm a web developer specializing in React and TypeScript, with experience creating applications and websites. I also work with Node.js, service integrations, and automations, which gives me a more comprehensive view of projects and how to connect each part of the solution.",
+      "I've participated in the development of landing pages, websites, and web applications connected to both proprietary and third-party APIs, always prioritizing performance, maintainability, and a seamless user experience. Furthermore, my previous experience in e-commerce and digital marketing has given me a more product-oriented perspective, focused on conversion and business objectives.",
+      "I adapt easily to different teams and work dynamics, maintaining clear communication and a practical approach to problem-solving and efficiently managing projects.",
     ],
     cv: "Download CV",
   },
