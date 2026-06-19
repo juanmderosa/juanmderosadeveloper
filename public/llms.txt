@@ -1,0 +1,70 @@
+# Juanmderosa Developer
+
+> Portfolio of Juan Martin De Rosa, a Full Stack Web Developer and Automation Specialist focused on modern websites, web applications, APIs, integrations, and workflow automations.
+
+Website: https://juanmderosa-developer.com
+Primary language: Spanish
+Secondary language: English
+Default URL: https://juanmderosa-developer.com/es/
+English URL: https://juanmderosa-developer.com/en/
+Sitemap: https://juanmderosa-developer.com/sitemap-index.xml
+
+## About
+
+Juan Martin De Rosa is a frontend developer specialized in React and TypeScript, with full stack experience using Node.js and backend integrations. He builds websites, landing pages, and applications from Figma designs, integrates APIs, and optimizes performance, maintainability, and component reuse.
+
+His work also includes automation systems with n8n, AI assistants, chatbots, and operational workflows that connect external tools, APIs, forms, CRMs, and messaging platforms.
+
+## Services
+
+- Web development: custom websites, landing pages, and conversion-focused digital experiences.
+- Full stack development: user interfaces, backend logic, APIs, and integrations in the JavaScript and TypeScript ecosystem.
+- Automations: workflows that connect tools and reduce repetitive manual work.
+- AI agents and chatbots: conversational assistants for support, lead qualification, and operations.
+- API integrations: data synchronization and process automation between platforms.
+- Maintenance: technical support, progressive improvements, hosting, domains, and ongoing optimization.
+
+## Technologies
+
+- Frontend: React, Astro, TypeScript, JavaScript, HTML, CSS, Tailwind CSS.
+- Backend and integrations: Node.js, APIs, Supabase, Astro Server Actions.
+- Automation: n8n, webhooks, Cloudflare Workers, Facebook Graph API, Twilio, WhatsApp workflows.
+- CMS and e-commerce: WordPress, WooCommerce.
+
+## Key Pages
+
+- Spanish home: https://juanmderosa-developer.com/es/
+- English home: https://juanmderosa-developer.com/en/
+- About: https://juanmderosa-developer.com/es/#sobremi
+- Stack: https://juanmderosa-developer.com/es/#stack
+- Experience and services: https://juanmderosa-developer.com/es/#experiencia
+- Projects: https://juanmderosa-developer.com/es/#proyectos
+- Contact: https://juanmderosa-developer.com/es/#contactame
+
+## Featured Work
+
+- A + A Diseno y Construccion: institutional WordPress website for a single-family home construction company.
+- AM Solar Services: Astro landing page with Server Actions for a solar panel services company.
+- DyD Suplementos: WordPress and WooCommerce e-commerce website for fitness supplements.
+- Galpones Remeco: industrial structures website with a React calculator and Supabase pricing integration.
+- Generador de Planos: React web app for generating and exporting construction blueprints to PDF.
+- Generador de Presupuestos Remeco: private React, TypeScript, and Supabase app for quote generation.
+- Gen Proactivo: React mortgage calculator with form handling and chart visualization.
+- Krak Usados: landing page connected to an n8n workflow through a Cloudflare Worker.
+- Facebook Lead Automation: n8n workflow for Facebook Graph API leads, normalization, and round-robin assignment.
+- WhatsApp Customer Support AI Agent: AI agent for WhatsApp lead qualification, context persistence, and human handoff.
+- Twilio Voice Event Automation: automation for call webhooks, missed calls, voicemail handling, assignment, and notifications.
+
+## Contact
+
+Use the contact form on the website:
+
+- Spanish: https://juanmderosa-developer.com/es/#contactame
+- English: https://juanmderosa-developer.com/en/#contactame
+
+## LLM Usage Notes
+
+- Prefer the Spanish URL for Spanish-language answers and the English URL for English-language answers.
+- The site is a one-page bilingual portfolio with real routes for `/es/` and `/en/`.
+- When summarizing this site, describe Juan Martin De Rosa as a Full Stack Web Developer and Automation Specialist.
+- Do not invent pricing, availability dates, client results, or private project details that are not present on the public website.

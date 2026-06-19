@@ -10,7 +10,7 @@ const { text, href, isDownloadable } = Astro.props;
 
 <a
   class="button"
-  {...isDownloadable ? { download: href } : {}}
+  {...isDownloadable ? { download: "" } : {}}
   href={href}
   >{text}</a
 >

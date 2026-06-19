@@ -39,9 +39,9 @@ export const es: SiteCopy = {
     title: "JUAN MARTÍN DE ROSA",
     role: "Desarrollador Web Full Stack & Automatización",
     paragraphs: [
-      "Soy desarrollador frontend especializado en React y TypeScript, aunque en los últimos proyectos fui ampliando mi perfil hacia el desarrollo full stack con Node.js y distintas integraciones backend.",
-      "Vengo trabajando hace tiempo en el desarrollo de sitios web, landing pages y aplicaciones a partir de diseños en Figma, integrando APIs y optimizando rendimiento, mantenibilidad y reutilización de componentes.",
-      "Además, mi experiencia previa en e-commerce y marketing digital me dio una mirada práctica sobre producto, conversión y comportamiento de usuarios. Actualmente sigo profundizando en Node.js y arquitectura full stack dentro del ecosistema JavaScript/TypeScript.",
+      " Soy desarrollador web especializado en React y TypeScript, con experiencia creando aplicaciones y sitios web. También trabajo con Node.js, integraciones entre servicios y automatizaciones, lo que me permite tener una visión más completa de los proyectos y de cómo conectar cada parte de la solución.",
+      "Participé en el desarrollo de landing pages, sitios web y aplicaciones web conectadas a APIs propias y de terceros, priorizando siempre el rendimiento, la mantenibilidad y una experiencia de usuario fluida. Además, mi experiencia previa en e-commerce y marketing digital me dio una perspectiva más orientada a producto, conversión y objetivos comerciales.",
+      "Me adapto con facilidad a distintos equipos y dinámicas de trabajo, manteniendo una comunicación clara y un enfoque práctico para resolver problemas y llevar adelante los proyectos de forma ordenada y eficiente",
     ],
     cv: "Descargar CV",
   },

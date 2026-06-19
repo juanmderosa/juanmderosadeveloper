@@ -13,13 +13,6 @@ export interface OpinionData {
   filePath?: string | undefined;
 }
 
-interface ProyectoImage {
-  src: string;
-  width: number;
-  height: number;
-  format: string;
-}
-
 export type Proyecto = {
   id: string;
   title: string;
