@@ -33,7 +33,7 @@ export const es: SiteCopy = {
     secondaryCta: "Sobre mi",
   },
   about: {
-    imageAlt: "Foto perfil de Juan Martín De Rosa",
+    imageAlt: "Perfil de Juan Martín De Rosa",
     caption: "Disponible para proyectos",
     kicker: "Sobre mi",
     title: "JUAN MARTÍN DE ROSA",
