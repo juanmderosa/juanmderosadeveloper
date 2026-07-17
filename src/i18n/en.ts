@@ -33,7 +33,7 @@ export const en: SiteCopy = {
     secondaryCta: "About me",
   },
   about: {
-    imageAlt: "Profile photo of Juan Martín De Rosa",
+    imageAlt: "Profile of Juan Martín De Rosa",
     caption: "Available for projects",
     kicker: "About me",
     title: "JUAN MARTÍN DE ROSA",
@@ -205,6 +205,16 @@ export const en: SiteCopy = {
         title: "Twilio Voice Event Automation",
         description:
           "Automation for call event webhooks, missed calls, voicemail handling, round-robin assignment, and agent notifications with attached audio.",
+      },
+      "25": {
+        title: "Natacha Publicista",
+        description:
+          "Landing page for Natacha De La Penna, advertising professional and marketing strategist. Developed using WordPress.",
+      },
+      "26": {
+        title: "Easy Agency",
+        description:
+          "Landing page for Easy Agency, an agency specializing in digital marketing and advertising. Developed using WordPress.",
       },
     },
   },
